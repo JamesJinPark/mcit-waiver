@@ -1,5 +1,6 @@
 1-3 point system, 3 hardest, 1 easiest
 
+//Britt//
 
 Feature: 2 points
 	As an instructor
@@ -20,6 +21,28 @@ Feature: 3 or 1 points
 	As an instructor
 	So that I can be notified of daily waiver requests
 	I want to receive an email once daily of waiver submissions
+
+Feature: 3 points
+	As an instructor
+	So that I can access the waiver system
+	I want to login 
+
+//James//
+
+Feature: 3 points
+	As an instructor 
+	So that I can leave the waiver system
+	I want to log out
+
+Feature: 2 points
+	As an instructor
+	So that I can approve and close a waiver request
+	I want to click the 'approve' button
+
+Feature: 2 points
+	As an instrustor
+	So that I can deny and close a waiver request
+	I want to click the 'deny' button
 
 Feature: 1 point
 	As a student 
