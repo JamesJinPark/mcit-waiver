@@ -29,32 +29,108 @@ Feature: 3 points
 
 //James//
 
-Feature: 3 points
+
+
+Feature: Instructor can logout (3 points)
 	As an instructor 
 	So that I can leave the waiver system
 	I want to log out
 
-Feature: 2 points
+Background:  Start from the Waiver Requests page
+  Given I am on the Waiver Requests page
+  I should see "Logout" buttom  
+
+Scenario:  Logout
+  When I press "Logout"
+  Then I should be on the Logout Confirmation page
+  And I should see "You've successfully logged out."
+
+
+
+Feature: Instructor can approve and close a waiver request (2 points)
 	As an instructor
 	So that I can approve and close a waiver request
 	I want to click the 'approve' button
 
-Feature: 2 points
+Background:  Start from Waiver Requests page
+  Given I am on the Wavier Requests page
+  Then I should see "Approve waiver" button
+
+Scenario:  Approve waiver
+  When I click "Approve waiver"
+  Then I should see the waiver status change from "Open" to "Approved"
+
+
+
+Feature: Instructor can deny and close a waiver request (2 points_
 	As an instrustor
 	So that I can deny and close a waiver request
 	I want to click the 'deny' button
 
-Feature: 1 point
+Background:  Start from Waiver Requests page
+  Given I am on the Wavier Requests page
+  Then I should see "Deny waiver" button
+
+Scenario:  Deny waiver
+  When I click "Deny waiver"
+  Then I should see the waiver status change from "Open" to "Denied"
+
+
+
+Feature: Student can submit waiver request (1 point)
 	As a student 
 	So that I can request class waiver
 	I want to submit a waiver request for the upcoming semester
 
-Feature: 3 or 1 points
+Background: Start from Waiver Request Submission page
+  Given I am on the Wavier Request Submission page
+  Then I should see "Name"
+  Then I should see "Email Address"
+  Then I should see "Class you want to waive"
+  Then I should see "Replacement class"
+  Then I should see "Taken already?"
+  Then I should see "Grade"
+  Then I should see "Comments"
+  Then I should see "Submit" button
+
+Scenario:  Submit waiver
+  When I fill in in "Name" with "John Smith"
+  And I fill in "Email Address" with "JohnSmith@seas.upenn.edu"
+  And I fill in "Class you want to waive" with "CIS 999"
+  And I fill in Replacement class" with "CIS 000"
+  And I select "Yes" from "Taken already?"
+  And I fill in "Grade" with "B"
+  And I press "Submit"
+  Then I should be on the Waiver Submission Confirmation page
+
+
+
+Feature: Student can receive confirmation email (3 or 1 points)
 	As a student
 	So that I can confirm waiver submission
 	I want to receive an email with waiver submission information
 
-Feature: 3 or 1 points
+Background: Start from Waiver Request Submission page
+  Given I am on the Waiver Request Submission page
+  Then I should see "Submit" button
+
+Scenario:  Recieve confirmation email
+  When I fill in all relevant boxes
+  And I press "Submit"
+  Then I should be on the Waiver Submission Confirmation page
+  And I should receive a confirmation email 
+
+
+
+Feature: Student can receive email with approval notice (3 or 1 points)
 	As a student
 	So that I can confirm waiver approval
 	I want to receive an email with approval notice for each waiver
+	
+Background:  Start from Waiver Requests page 
+  Given Instructor is on the Waiver Requests page
+  And sees "Approved" button 
+
+Scenario:  Recieve email with approval notice
+  When Instructor presses "Approved" button
+  Then I should receive an email with approval notice
