@@ -1,0 +1,33 @@
+Feature: Instructor can deny a request
+Scenario: Deny a request
+	Given I am on the waiver history page
+	When I click "Deny"
+	Then I should be able to deny a request
+
+Feature: Instructor can approve a request
+Scenario: Approve a request
+	Given I am on the waiver history page
+	When I click "Approve"
+	Then I should be able to approve a request
+
+Feature: Instructor can view all waiver history
+Scenario: View all waiver history
+	Given I log in as an instructor
+	When I click 'history' in the navigation
+	Then I should be able to view all open and closed waiver requests
+
+Feature: Instructor can view a specific waiver's submission information
+Scenario: View a specific waiver's submission information
+	Given I log in as an instructor
+	Then I should be able to view a specific waiver's submission information
+
+Feature: Instructor can recive a daily email of waiver submissions
+Scenario: Receive a daily email of waiver requests
+	Given a student submits at least one new waiver request
+	Then I should receive a daily digest email of waiver requests
+
+Feature: Instructor can login
+Scenario: Login as an instructor
+	Given I enter a valid username and password 
+	When I hit 'enter' or click 'submit'
+	Then I should be logged in 

@@ -10,7 +10,7 @@ Feature: 2 points
 Feature: 1 point
 	As an instructor
 	So that I can view all open and closed waiver requests
-	I want to view waiver history
+	I want to view all waiver history
 
 Feature: 2 points
 	As an instructor
