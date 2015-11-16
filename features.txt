@@ -1,33 +1,88 @@
 1-3 point system, 3 hardest, 1 easiest
 
-//Britt//
-
-Feature: 2 points
+Feature: Instructor can approve or deny a request (2 points)
 	As an instructor
 	So that I can view all open waiver requests
 	I want to approve or deny a request
 
-Feature: 1 point
+Background: Start from open waiver page
+  Given that I am on the open waiver page
+  Then I should be able to click 'Approve'
+  Then I should be able to click 'Deny'
+
+Scenario: Deny a request
+  Given I am on the waiver history page
+  When I click "Deny"
+  Then I should be able to deny a request
+
+Scenario: Approve a request
+  Given I am on the waiver history page
+  When I click "Approve"
+  Then I should be able to approve a request
+
+
+
+Feature: Instructor can view all waiver history (1 point)
 	As an instructor
 	So that I can view all open and closed waiver requests
-	I want to view waiver history
+	I want to view all waiver history
 
-Feature: 2 points
+Background: Start from open waiver page
+  Given that I am on the open waiver page
+  I should see a 'history' button
+
+Scenario: View all waiver history
+  Given I log in as an instructor
+  When I click 'history' in the navigation
+  Then I should be able to view all open and closed waiver requests
+
+
+
+Feature: Instructor can view a specific waiver's submission information (2 points)
 	As an instructor
 	So that I can view a specific student's open waiver request
 	I want to view waiver submission information
 
-Feature: 3 or 1 points
+Background: Start from the open waiver page
+  Given that I am on the open waiver page
+  I should see open waiver information
+
+Scenario: View a specific waiver's submission information
+  Given I log in as an instructor
+  Then I should be able to view a specific waiver's submission information
+
+
+
+Feature: Instructor can recive a daily email of waiver submissions (3 or 1 points)
 	As an instructor
 	So that I can be notified of daily waiver requests
 	I want to receive an email once daily of waiver submissions
 
-Feature: 3 points
+Background: A student submits a waiver request
+  And it is added to the email digest
+  I should receive a digest email once daily
+
+Scenario: Receive a daily email of waiver requests
+  Given a student submits at least one new waiver request
+  Then I should receive a daily digest email of waiver requests
+
+
+
+Feature: Instructor can login (3 points)
 	As an instructor
 	So that I can access the waiver system
 	I want to login 
 
-//James//
+Background: Start from the index page
+  Given I am on the index page
+  And I click on 'instructor'
+  And I entery a valid username and password
+  Then I can login
+
+Scenario: Login as an instructor
+  Given I enter a valid username and password 
+  When I hit 'enter' or click 'submit'
+  Then I should be logged in 
 
 
 
