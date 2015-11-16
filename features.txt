@@ -75,8 +75,7 @@ Scenario:  Deny waiver
   When I click "Deny waiver"
   Then I should see the waiver status change from "Open" to "Denied"
 
-
-
+  
 Feature: Student can submit waiver request (1 point)
 	As a student 
 	So that I can request class waiver
