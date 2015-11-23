@@ -1,0 +1,53 @@
+<h1>Waiver Submission Form</h1>
+
+<%= form_for :waiver, url: waivers_path do |f| %>
+
+<% if @waiver.errors.any? %>
+  <div id="error_explanation">
+  	<h2>
+  	  <%= pluralize(@waiver.errors.count, "error") %> prohibited this article from being saved:
+  	</h2>
+  	<ul>
+  	  <% @waiver.errors.full_messages.each do |msg| %>
+  	    <li><%= msg %></li>
+  	  <% end %>
+  	</ul>
+  </div>
+<% end %>
+
+
+  <p>
+  	<%= f.label :name %><br>
+  	<%= f.text_field :name %>
+  </p>
+
+  <p>
+  	<%= f.label :email %><br>
+  	<%= f.text_field :email %>
+  </p>
+
+  <p>
+  	<%= f.label :waiver_class %><br>
+  	<%= f.text_field :waiver_class %>
+  </p>
+
+  <p>
+  	<%= f.label :replacement_class %><br>
+  	<%= f.text_field :replacement_class %>
+  </p>
+
+  <p>
+  	<%= f.label :taken_replacement_class? %><br>
+  	<%= f.text_field :taken_replacement_class %>
+  </p>
+
+  <p>
+  	<%= f.label :comments %><br>
+  	<%= f.text_field :comments %>
+  </p>
+
+  <p>
+  	<%= f.submit :Submit %>
+  </p>
+
+<% end %>

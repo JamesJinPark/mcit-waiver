@@ -1,0 +1,26 @@
+<h1>All Waiver Submissions</h1>
+
+<table>
+  <tr>
+  	<th>Name</th>
+  	<th>Email</th>
+  	<th>Waiver Class</th>
+  	<th>Replacement Class</th>
+  	<th>Taken already?</th>
+  	<th>Comments</th>
+  </tr>
+
+  <% @waivers.each do |waiver| %>
+    <tr>
+      <td><%= waiver.name %></td>
+      <td><%= waiver.email %></td>
+      <td><%= waiver.waiver_class %></td>
+      <td><%= waiver.replacement_class %></td>
+      <td><%= waiver.taken_replacement_class %></td>
+      <td><%= waiver.comments %></td>
+      <td><%= link_to 'Delete', waiver_path(waiver), 
+      		method: :delete,
+      		data: {confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
