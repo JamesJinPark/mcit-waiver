@@ -30,7 +30,7 @@ class WaiversController < ApplicationController
 
   private 
     def waiver_params
-      params.require(:waiver).permit(:name, :email, :waiver_class, :replacement_class, :taken_replacement_class, :comments)
+      params.require(:waiver).permit(:name, :email, :waiver_class, :replacement_class, :taken_replacement_class, :file_upload, :comments)
     end
 
 end
