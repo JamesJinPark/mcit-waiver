@@ -33,4 +33,7 @@ class WaiversController < ApplicationController
       params.require(:waiver).permit(:name, :email, :waiver_class, :replacement_class, :taken_replacement_class, :file_upload, :comments)
     end
 
+  def help
+  end
+
 end
