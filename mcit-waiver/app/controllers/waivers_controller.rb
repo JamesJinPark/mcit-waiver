@@ -33,6 +33,24 @@ class WaiversController < ApplicationController
       params.require(:waiver).permit(:name, :email, :waiver_class, :replacement_class, :taken_replacement_class, :file_upload, :comments)
     end
 
+  def show_cit_591_waivers
+  end
+
+  def show_cit_592_waivers
+  end
+
+  def show_cit_593_waivers
+  end
+
+  def show_cit_594_waivers
+  end
+
+  def show_cit_595_waivers
+  end
+
+  def show_cit_596_waivers
+  end
+
   def help
   end
 

@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
   get '/help' => 'waivers#help'
+  get '/cit_591_waivers' => 'waivers#cit_591_waivers'
+  get '/cit_592_waivers' => 'waivers#cit_592_waivers'
+  get '/cit_593_waivers' => 'waivers#cit_593_waivers'
+  get '/cit_594_waivers' => 'waivers#cit_594_waivers'
+  get '/cit_595_waivers' => 'waivers#cit_595_waivers'
+  get '/cit_596_waivers' => 'waivers#cit_596_waivers'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
