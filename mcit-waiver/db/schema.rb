@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 20151122233225) do
     t.string   "string"
     t.string   "waiver_class"
     t.string   "replacement_class"
-    t.string   "taken_replacement_class"
+    t.string   "taken_replacement_class?"
     t.text     "comments"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
 end
