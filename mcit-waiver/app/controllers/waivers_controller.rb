@@ -1,57 +1,83 @@
 class WaiversController < ApplicationController
+  # GET /waivers
+  # GET /waivers.json
   def index
-  	@waivers = Waiver.all
+    @waivers = Waiver.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @waivers }
+    end
   end
 
+  # GET /waivers/1
+  # GET /waivers/1.json
   def show
+    @waiver = Waiver.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @waiver }
+    end
+  end
+
+  # GET /waivers/new
+  # GET /waivers/new.json
+  def new
+    @waiver = Waiver.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @waiver }
+    end
+  end
+
+  # GET /waivers/1/edit
+  def edit
     @waiver = Waiver.find(params[:id])
   end
 
-  def new
-  	@waiver = Waiver.new
-  end
-
+  # POST /waivers
+  # POST /waivers.json
   def create
-  	@waiver = Waiver.new(waiver_params)
+    @waiver = Waiver.new(params[:waiver])
 
-  	if @waiver.save
-      redirect_to @waiver
-    else
-      render 'new'
+    respond_to do |format|
+      if @waiver.save
+        format.html { redirect_to @waiver, notice: 'Waiver was successfully created.' }
+        format.json { render json: @waiver, status: :created, location: @waiver }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @waiver.errors, status: :unprocessable_entity }
+      end
     end
   end
 
+  # PUT /waivers/1
+  # PUT /waivers/1.json
+  def update
+    @waiver = Waiver.find(params[:id])
+
+    respond_to do |format|
+      if @waiver.update_attributes(params[:waiver])
+        format.html { redirect_to @waiver, notice: 'Waiver was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @waiver.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /waivers/1
+  # DELETE /waivers/1.json
   def destroy
-  	@waiver = Waiver.find(params[:id])
-  	@waiver.destroy
+    @waiver = Waiver.find(params[:id])
+    @waiver.destroy
 
-  	redirect_to waivers_path
-  end
-
-  private 
-    def waiver_params
-      params.require(:waiver).permit(:name, :email, :waiver_class, :replacement_class, :taken_replacement_class, :file_upload, :comments)
+    respond_to do |format|
+      format.html { redirect_to waivers_url }
+      format.json { head :no_content }
     end
-
-  def show_cit_591_waivers
   end
-
-  def show_cit_592_waivers
-  end
-
-  def show_cit_593_waivers
-  end
-
-  def show_cit_594_waivers
-  end
-
-  def show_cit_595_waivers
-  end
-
-  def show_cit_596_waivers
-  end
-
-  def help
-  end
-
 end

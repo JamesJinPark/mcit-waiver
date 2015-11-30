@@ -1,34 +1,35 @@
+<p id="notice"><%= notice %></p>
+
 <p>
-  <strong>Name</strong>
-  <%= @waiver.name %>
+  <b>First name:</b>
+  <%= @waiver.first_name %>
 </p>
 
 <p>
-  <strong>Email</strong>
-  <%= @waiver.email %>
+  <b>Last name:</b>
+  <%= @waiver.last_name %>
 </p>
 
 <p>
-  <strong>Waiver Class</strong>
+  <b>Waiver class:</b>
   <%= @waiver.waiver_class %>
 </p>
 
 <p>
-  <strong>Replacement Class</strong>
+  <b>Replacement class:</b>
   <%= @waiver.replacement_class %>
 </p>
 
 <p>
-  <strong>Taken already?</strong>
+  <b>Taken replacement class:</b>
   <%= @waiver.taken_replacement_class %>
 </p>
 
 <p>
-  <strong>File Upload</strong>
-  <%= @waiver.file_upload %>
-</p>
-
-<p>
-  <strong>Comments</strong>
+  <b>Comments:</b>
   <%= @waiver.comments %>
 </p>
+
+
+<%= link_to 'Edit', edit_waiver_path(@waiver) %> |
+<%= link_to 'Back', waivers_path %>
