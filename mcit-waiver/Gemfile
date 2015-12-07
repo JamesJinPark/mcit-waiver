@@ -39,7 +39,7 @@ gem 'annotate'
 # To use debugger
 # gem 'debugger'
 
-group :test do
+group :test, :development do
 	gem 'cucumber-rails', :require => false
 	gem 'cucumber-rails-training-wheels'
 	gem 'database_cleaner'
