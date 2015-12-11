@@ -22,6 +22,10 @@ module NavigationHelpers
     #   when /^(.*)'s profile page$/i
     #     user_profile_path(User.find_by_login($1))
 
+    when /^the admin\s?page$/
+      '/waivers'
+
+
     else
       begin
         page_name =~ /^the (.*) page$/
