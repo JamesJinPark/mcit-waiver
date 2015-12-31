@@ -1,6 +1,6 @@
 <h1>Listing waivers</h1>
 
-<table class="waivers">
+<table class="table">
   <tr>
     <th>First name</th>
     <th>Last name</th>
@@ -9,6 +9,7 @@
     <th>Replacement class</th>
     <th>Taken replacement class</th>
     <th>Comments</th>
+    <th>Status</th>
     <th></th>
     <th></th>
     <th></th>
@@ -23,6 +24,7 @@
     <td><%= waiver.replacement_class %></td>
     <td><%= waiver.taken_replacement_class %></td>
     <td><%= waiver.comments %></td>
+    <td><%= waiver.status %></td>
     <td><%= link_to 'Show', waiver %></td>
     <td><%= link_to 'Edit', edit_waiver_path(waiver) %></td>
     <td><%= link_to 'Destroy', waiver, method: :delete, data: { confirm: 'Are you sure?' } %></td>

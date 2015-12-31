@@ -15,5 +15,9 @@
 #
 
 class Waiver < ActiveRecord::Base
-  attr_accessible :comments, :first_name, :last_name, :email, :replacement_class, :taken_replacement_class, :waiver_class
+  attr_accessible :comments, :first_name, :last_name, :email, :replacement_class, :taken_replacement_class, :waiver_class, :status
+  before_save :default_values
+  def default_values
+    self.status ||= 'Pending'
+  end
 end
