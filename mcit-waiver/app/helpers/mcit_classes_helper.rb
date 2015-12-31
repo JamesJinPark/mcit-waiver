@@ -1,0 +1,2 @@
+module McitClassesHelper
+end
