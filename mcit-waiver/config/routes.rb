@@ -1,5 +1,5 @@
 McitWaiver::Application.routes.draw do
-  resources :mcit_classes
+  resources :courses
 
 
   resources :waivers

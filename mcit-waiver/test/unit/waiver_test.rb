@@ -12,6 +12,8 @@
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
 #  email                   :string(255)
+#  status                  :string(255)
+#  course_id               :integer
 #
 
 require 'test_helper'
