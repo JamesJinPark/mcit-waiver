@@ -24,8 +24,8 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :waiver_class %><br />
-    <%= f.text_field :waiver_class %>
+    <%= f.label :course %><br />
+    <%= collection_select(:waiver, :course_id, Course.all, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :replacement_class %><br />
