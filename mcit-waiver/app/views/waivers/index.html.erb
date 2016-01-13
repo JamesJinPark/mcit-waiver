@@ -13,6 +13,8 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
+    <th></th>
   </tr>
 
 <% @waivers.each do |waiver| %>
@@ -28,6 +30,8 @@
     <td><%= link_to 'Show', waiver %></td>
     <td><%= link_to 'Edit', edit_waiver_path(waiver) %></td>
     <td><%= link_to 'Destroy', waiver, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Deny', deny_waiver_path(waiver), method: :post %></td>
+    <td><%= link_to 'Approve', approve_waiver_path(waiver), method: :post %></td>
   </tr>
 <% end %>
 </table>

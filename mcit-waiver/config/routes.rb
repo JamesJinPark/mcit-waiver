@@ -1,9 +1,7 @@
 McitWaiver::Application.routes.draw do
   resources :courses
 
-
   resources :waivers
-
 
   get "home/index"
 
@@ -63,4 +61,17 @@ McitWaiver::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
+
+  resources :waivers do
+    member do
+      post 'deny'
+    end
+  end
+
+  resources :waivers do
+    member do
+      post 'approve'
+    end
+  end
+
 end

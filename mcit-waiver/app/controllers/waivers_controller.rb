@@ -80,4 +80,18 @@ class WaiversController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def deny
+    @waiver = Waiver.find(params[:id])
+    @waiver.update_attribute(:status, "Denied")
+    redirect_to @waiver
+  end
+
+  def approve
+    @waiver = Waiver.find(params[:id])
+    @waiver.update_attribute(:status, "Approved")
+    redirect_to @waiver
+  end
+
+  
 end
