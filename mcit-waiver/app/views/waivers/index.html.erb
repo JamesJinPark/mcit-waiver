@@ -38,4 +38,16 @@
 
 <br />
 
+
+
 <%= link_to 'New Waiver', new_waiver_path %>
+
+<br />
+<% if user_signed_in? %>
+<%= link_to('Instructor Logout', destroy_user_session_path, method: :delete) %>
+<% end %>
+<br />
+<% if admin_signed_in? %>
+<%= link_to('Admin Logout', destroy_admin_session_path, method: :delete) %>
+<% end %>
+

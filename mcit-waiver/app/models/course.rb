@@ -6,9 +6,11 @@
 #  name       :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
 #
 
 class Course < ActiveRecord::Base
   attr_accessible :name
   has_many :waivers
+  belongs_to :user
 end

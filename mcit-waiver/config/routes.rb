@@ -1,4 +1,10 @@
 McitWaiver::Application.routes.draw do
+  get "admin" => "admin#home"
+
+  devise_for :admins
+
+  devise_for :users
+
   resources :courses
 
   resources :waivers

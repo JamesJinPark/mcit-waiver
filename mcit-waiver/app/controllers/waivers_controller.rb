@@ -1,4 +1,7 @@
 class WaiversController < ApplicationController
+
+  before_filter :authenticate_admin!, except: [:new, :create]
+
   # GET /waivers
   # GET /waivers.json
   def index
