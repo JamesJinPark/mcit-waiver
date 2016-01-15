@@ -10,6 +10,11 @@ class WaiversController < ApplicationController
   def index
     @waivers = Waiver.order(sort_column + " " + sort_direction)
 
+    @search = Waiver.search do
+      fulltext params[:search]
+    end
+    @waivers = @search.results
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @waivers }
