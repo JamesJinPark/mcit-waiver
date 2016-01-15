@@ -2,6 +2,7 @@
 
 <table class="table">
   <tr>
+    <th>Timestamp</th>
     <th>First name</th>
     <th>Last name</th>
     <th>Email address</th>
@@ -19,6 +20,7 @@
 
 <% @waivers.each do |waiver| %>
   <tr>
+    <td><%= waiver.created_at %></td>
     <td><%= waiver.first_name %></td>
     <td><%= waiver.last_name %></td>
     <td><%= waiver.email %></td>
