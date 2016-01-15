@@ -1,20 +1,10 @@
 class CoursesController < ApplicationController
 
-# ensure admin for other actions
-before_filter :check_admin_logged_in!, :except => [:show, :index]
+# checks that admin is logged in
+before_filter :check_admin_logged_in!, except: [:show, :index]
 
-# ensure user or admin logged in for these actions (:only option is optional)
-before_filter :check_user_logged_in!, :only => [:show, :index]
-
-    def check_admin_logged_in! # admin must be logged in
-        authenticate_admin!
-    end
-
-    def check_user_logged_in! # if admin is not logged in, user must be logged in
-      if !admin_signed_in?
-        authenticate_user!
-      end   
-    end
+# checks that instructor is logged in
+before_filter :check_user_logged_in!, only: [:show, :index]
 
   # GET /courses
   # GET /courses.json
@@ -97,4 +87,16 @@ before_filter :check_user_logged_in!, :only => [:show, :index]
       format.json { head :no_content }
     end
   end
+
+  private 
+    def check_admin_logged_in! # admin must be logged in
+        authenticate_admin!
+    end
+
+    def check_user_logged_in! # if admin is not logged in, instructor must be logged in
+      if !admin_signed_in?
+        authenticate_user!
+      end   
+    end
+
 end

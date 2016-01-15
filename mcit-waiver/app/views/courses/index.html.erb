@@ -13,7 +13,7 @@
   <% if admin_signed_in? %>
     <tr>
       <td><%= course.name %></td>
-      <% if (User.find_by_id params[course.user_id]).nil? %>
+      <% if (User.find_by_id(course.user_id)).nil? %>
         <td><%= 'No Instructor Assigned' %></td>        
       <% else %>
         <td><%= course.user.email %></td>    
@@ -24,9 +24,11 @@
     </tr>
   <% else %>
       <% if current_user.id == course.user_id %>
+      <tr>
         <td><%= course.name %></td>
         <td><%= course.user.email %></td>    
         <td><%= link_to 'Show', course %></td>
+      </tr>
       <% end %>
   <% end %>
 
