@@ -4,8 +4,11 @@ class WaiversController < ApplicationController
 
   # GET /waivers
   # GET /waivers.json
+
+  helper_method :sort_column, :sort_direction
+
   def index
-    @waivers = Waiver.all
+    @waivers = Waiver.order(sort_column + " " + sort_direction)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -96,5 +99,13 @@ class WaiversController < ApplicationController
     redirect_to @waiver
   end
 
+  private
+  def sort_column
+    Waiver.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
   
 end
