@@ -5,6 +5,11 @@ McitWaiver::Application.routes.draw do
 
   devise_for :users
 
+  match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
+  match 'users/:id' => 'users#show', as: :user
+ 
+  resources :users
+
   resources :courses
 
   resources :waivers

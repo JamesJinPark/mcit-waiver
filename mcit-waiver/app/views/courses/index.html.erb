@@ -3,21 +3,45 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Instructor</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @courses.each do |course| %>
-  <tr>
-    <td><%= course.name %></td>
-    <td><%= link_to 'Show', course %></td>
-    <td><%= link_to 'Edit', edit_course_path(course) %></td>
-    <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <% if admin_signed_in? %>
+    <tr>
+      <td><%= course.name %></td>
+      <% if (User.find_by_id params[course.user_id]).nil? %>
+        <td><%= 'No Instructor Assigned' %></td>        
+      <% else %>
+        <td><%= course.user.email %></td>    
+      <% end %>
+      <td><%= link_to 'Show', course %></td>
+      <td><%= link_to 'Edit', edit_course_path(course) %></td>
+      <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% else %>
+      <% if current_user.id == course.user_id %>
+        <td><%= course.name %></td>
+        <td><%= course.user.email %></td>    
+        <td><%= link_to 'Show', course %></td>
+      <% end %>
+  <% end %>
+
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Course', new_course_path %>
+<br />
+<% if user_signed_in? %>
+<%= link_to('Instructor Logout', destroy_user_session_path, method: :delete) %>
+<% end %>
+<br />
+
+<% if admin_signed_in? %>
+<%= link_to 'New Course', new_course_path %><br />
+<%= link_to "Administrator Dashboard", admin_path %>
+<%end%>

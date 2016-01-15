@@ -3,6 +3,14 @@
 <p>
   <b>Name:</b>
   <%= @course.name %>
+  <b>User_id:</b>
+  <%= @course.user_id %>
+
+  <% if (User.find_by_id params[@course.user_id]) != nil %>
+    <b>Instructor:</b>
+    <%= @course.user.email %>
+  <% end %>
+
 </p>
 
 

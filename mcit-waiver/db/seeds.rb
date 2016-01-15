@@ -8,4 +8,4 @@
 
 #Course.create([{name: 'CIT591'}, {name: 'CIT592'}, {name: 'CIT593'}, {name: 'CIT594'}, {name: 'CIT595'}, {name: 'CIT596'}])
 
-User.create([{email: 'james@mcitwaiver.com', password: '1234567890'}])
+#User.create([{email: 'james@mcitwaiver.com', password: '1234567890'}])
