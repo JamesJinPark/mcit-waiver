@@ -18,7 +18,8 @@
 
 class Waiver < ActiveRecord::Base
   belongs_to :course
-  attr_accessible :comments, :first_name, :last_name, :email, :replacement_class, :taken_replacement_class, :waiver_class, :status, :course_id, :course
+  attr_accessible :comments, :first_name, :last_name, :email, :replacement_class, :taken_replacement_class, :waiver_class, :status, :course_id, :course, :documentation
+  mount_uploader :documentation, DocumentationUploader
   before_save :default_values
   def default_values
     self.status ||= 'Pending'
@@ -27,7 +28,7 @@ class Waiver < ActiveRecord::Base
 
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.upenn.edu\Z/i
 
-  validates_presence_of :comments, :first_name, :last_name, :email, :replacement_class, :taken_replacement_class, :course_id
+  validates_presence_of :comments, :first_name, :last_name, :email, :replacement_class, :taken_replacement_class, :course_id, :documentation
   validates_uniqueness_of :email
   validates_length_of :first_name, :maximum => 50
   validates_length_of :last_name, :maximum => 50
@@ -40,4 +41,6 @@ class Waiver < ActiveRecord::Base
   searchable do
     text :comments, :first_name, :last_name, :email, :replacement_class, :taken_replacement_class, :waiver_class, :status, :course
   end
+
+  
 end

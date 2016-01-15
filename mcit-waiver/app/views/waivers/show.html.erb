@@ -43,6 +43,9 @@
   <b>Status:</b>
   <%= @waiver.status %>
 </p>
+<p>
+  <%= image_tag @waiver.documentation_url.to_s %>
+</p>
 
 
 <%= link_to 'Edit', edit_waiver_path(@waiver) %> |

@@ -1,4 +1,4 @@
-<%= form_for(@waiver) do |f| %>
+<%= form_for @waiver, :html => {:multipart => true} do |f| %>
   <% if @waiver.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@waiver.errors.count, "error") %> prohibited this waiver from being saved:</h2>
@@ -36,8 +36,8 @@
     <%= f.text_field :taken_replacement_class %>
   </div>
   <div class="field">
-    <%= f.label :transcript_and_syllabus_upload %><br />
-    <%= f.file_field :upload %>
+    <%= f.label :documentation_upload %><br />
+    <%= f.file_field :documentation %>
   </div>
 
   <div class="field">
