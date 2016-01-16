@@ -20,6 +20,7 @@ class Waiver < ActiveRecord::Base
   belongs_to :course
   attr_accessible :comments, :first_name, :last_name, :email, :replacement_class, :taken_replacement_class, :waiver_class, :status, :course_id, :course, :documentation
   mount_uploader :documentation, DocumentationUploader
+  
   before_save :default_values
   def default_values
     self.status ||= 'Pending'
