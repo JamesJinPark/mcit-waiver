@@ -14,6 +14,8 @@
 #  email                   :string(255)
 #  status                  :string(255)
 #  course_id               :integer
+#  timestamp               :datetime
+#  documentation           :string(255)
 #
 
 class Waiver < ActiveRecord::Base
@@ -29,7 +31,7 @@ class Waiver < ActiveRecord::Base
 
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.upenn.edu\Z/i
 
-  validates_presence_of :comments, :first_name, :last_name, :email, :replacement_class, :taken_replacement_class, :course_id, :documentation
+  validates_presence_of :comments, :first_name, :last_name, :email, :replacement_class, :taken_replacement_class, :course_id
   validates_uniqueness_of :email
   validates_length_of :first_name, :maximum => 50
   validates_length_of :last_name, :maximum => 50

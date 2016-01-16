@@ -1,6 +1,26 @@
+# == Schema Information
+#
+# Table name: waivers
+#
+#  id                      :integer          not null, primary key
+#  first_name              :string(255)
+#  last_name               :string(255)
+#  waiver_class            :string(255)
+#  replacement_class       :string(255)
+#  taken_replacement_class :string(255)
+#  comments                :text
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#  email                   :string(255)
+#  status                  :string(255)
+#  course_id               :integer
+#  timestamp               :datetime
+#  documentation           :string(255)
+#
+
 class WaiversController < ApplicationController
 
-  before_filter :authenticate_admin!, except: [:new, :create]
+  before_filter :authenticate_admin!, except: [:new, :create, :show]
 
   # GET /waivers
   # GET /waivers.json

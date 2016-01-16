@@ -14,6 +14,8 @@
 #  email                   :string(255)
 #  status                  :string(255)
 #  course_id               :integer
+#  timestamp               :datetime
+#  documentation           :string(255)
 #
 
 require 'test_helper'

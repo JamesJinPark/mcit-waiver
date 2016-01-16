@@ -48,6 +48,7 @@
   <%= @waiver.documentation.identifier %>
 </p>
 
-
-<%= link_to 'Edit', edit_waiver_path(@waiver) %> |
-<%= link_to 'Back', waivers_path %>
+<% if admin_signed_in? || user_signed_in? %>
+  <%= link_to 'Edit', edit_waiver_path(@waiver) %> |
+  <%= link_to 'Back', waivers_path %>
+<% end %>
