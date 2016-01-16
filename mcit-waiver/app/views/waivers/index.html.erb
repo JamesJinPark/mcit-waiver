@@ -18,6 +18,7 @@
     <th><%= sortable "taken_replacement_class" %></th>
     <th><%= sortable "comments" %></th>
     <th><%= sortable "status" %></th>
+    <th><%= sortable "documentation", "Attachments" %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -36,6 +37,7 @@
     <td><%= waiver.taken_replacement_class %></td>
     <td><%= waiver.comments %></td>
     <td><%= waiver.status %></td>
+    <td><%= link_to 'Attachment', waiver.documentation.url %></td>
     <td><%= link_to 'Show', waiver %></td>
     <td><%= link_to 'Edit', edit_waiver_path(waiver) %></td>
     <td><%= link_to 'Destroy', waiver, method: :delete, data: { confirm: 'Are you sure?' } %></td>
