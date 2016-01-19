@@ -18,12 +18,10 @@
   <b>Email address:</b>
   <%= @waiver.email %>
 </p>
-
 <p>
   <b>Course:</b>
   <%= @waiver.course.name %>
 </p>
-
 <p>
   <b>Replacement class:</b>
   <%= @waiver.replacement_class %>
@@ -48,7 +46,10 @@
   <%= @waiver.documentation.identifier %>
 </p>
 
-<% if admin_signed_in? || user_signed_in? %>
-  <%= link_to 'Edit', edit_waiver_path(@waiver) %> |
+<%= link_to 'Edit', edit_waiver_path(@waiver) %> |
+<% if admin_signed_in?%>
   <%= link_to 'Back', waivers_path %>
+<% elsif user_signed_in? %>
+  <%= link_to 'Back', course_path(@waiver.course_id) %>
 <% end %>
+

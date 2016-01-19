@@ -14,3 +14,13 @@
   </tr>
   <% end %>
 </table>
+
+<% if user_signed_in? %>
+<%= link_to('Instructor Logout', destroy_user_session_path, method: :delete) %>
+<% end %>
+<br />
+
+<% if admin_signed_in? %>
+<%= link_to 'Add New Instructor', new_user_registration_path  %><br />
+<%= link_to "Administrator Dashboard", admin_path %>
+<%end%>

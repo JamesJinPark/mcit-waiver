@@ -10,8 +10,7 @@
 #
 
 class Course < ActiveRecord::Base
-  attr_accessible :name, :user_id
+  attr_accessible :name, :user_id, :id
   has_many :waivers
   belongs_to :user
-  
 end

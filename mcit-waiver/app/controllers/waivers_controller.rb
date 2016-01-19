@@ -20,7 +20,11 @@
 
 class WaiversController < ApplicationController
 
-  before_filter :authenticate_admin!, except: [:new, :create, :show]
+# checks that admin is logged in
+before_filter :check_admin_logged_in!, except: [:new, :create, :show, :edit, :approve, :deny, :destroy, :update_attribute, :update]
+
+# checks that instructor is logged in
+before_filter :check_user_logged_in!, only: [:edit, :approve, :deny, :destroy, :update_attribute, :update]
 
   # GET /waivers
   # GET /waivers.json
@@ -133,4 +137,16 @@ class WaiversController < ApplicationController
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
   
+  private 
+    def check_admin_logged_in! # admin must be logged in
+        authenticate_admin!
+    end
+
+    def check_user_logged_in! # if admin is not logged in, instructor must be logged in
+      if !admin_signed_in?
+        authenticate_user!
+      end   
+    end
+
+
 end

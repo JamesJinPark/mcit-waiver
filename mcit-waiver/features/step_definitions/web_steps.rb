@@ -45,6 +45,25 @@ Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
+Given /^I am not authenticated$/ do
+  Admin.new(:email => "admin@seas.upenn.edu", :password => "1234567890", :password_confirmation => "1234567890").save!
+end
+
+When /^I need two courses$/ do
+  User.create(:email => "CIT591@seas.upenn.edu", :password => "1234567890", :password_confirmation => "1234567890")
+  User.create!(:email => "CIT592@seas.upenn.edu", :password => "1234567890", :password_confirmation => "1234567890")
+  Course.create(:name => "CIT591", :user_id => "1")
+  Course.create!(:name => "CIT592", :user_id => "2")
+end
+
+Given /^I want to create a waiver$/ do
+  Waiver.new(:first_name => "James", :last_name => "Park", :email => "james@seas.upenn.edu", :replacement_class => "CIS 999", :taken_replacement_class => "Yes", :course_id => "1").save!
+end
+
+When /^I want to open a test page$/ do
+  save_and_open_page
+end
+
 When /^(?:|I )go to (.+)$/ do |page_name|
   visit path_to(page_name)
 end

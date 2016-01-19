@@ -33,11 +33,10 @@ class User < ActiveRecord::Base
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.upenn.edu\Z/i
   validates_presence_of :email, :password
   validates_confirmation_of :email, :password
-  validates_format_of :email, :with => EMAIL_REGEX, :message =>"Must be a Penn email address."
+  validates_format_of :email, :with => EMAIL_REGEX, :message =>"must be a Penn email address."
   validates_length_of :email, :maximum => 100
   validates_length_of :password, :minimum => 10
   validates_uniqueness_of :email
   validates_confirmation_of :email
-
 
 end

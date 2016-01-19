@@ -3,4 +3,8 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', @waiver %> |
-<%= link_to 'Back', waivers_path %>
+<% if admin_signed_in?%>
+  <%= link_to 'Back', waivers_path %>
+<% elsif user_signed_in? %>
+  <%= link_to 'Back', course_path(@waiver.course_id) %>
+<% end %>

@@ -31,14 +31,14 @@ class Waiver < ActiveRecord::Base
 
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.upenn.edu\Z/i
 
-  validates_presence_of :comments, :first_name, :last_name, :email, :replacement_class, :taken_replacement_class, :course_id
+  validates_presence_of :first_name, :last_name, :email, :replacement_class, :taken_replacement_class, :course_id
   validates_uniqueness_of :email
   validates_length_of :first_name, :maximum => 50
   validates_length_of :last_name, :maximum => 50
   validates_length_of :email, :maximum => 100
   validates_length_of :replacement_class, :maximum => 255
   validates_length_of :comments, :maximum => 2000
-  validates_format_of :email, :with => EMAIL_REGEX, :message =>"Must be a Penn email address."
+  validates_format_of :email, :with => EMAIL_REGEX, :message =>"must be a Penn email address."
   validates_confirmation_of :email
 
   searchable do
