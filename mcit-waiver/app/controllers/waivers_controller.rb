@@ -34,10 +34,12 @@ before_filter :check_user_logged_in!, only: [:edit, :approve, :deny, :destroy, :
   def index
     @waivers = Waiver.order(sort_column + " " + sort_direction)
 
-    @search = Waiver.search do
-      fulltext params[:search]
+    if params[:search].present?
+      @search = Waiver.search do
+        fulltext params[:search]
+      end
+      @waivers = @search.results
     end
-    @waivers = @search.results
 
     respond_to do |format|
       format.html # index.html.erb

@@ -19,3 +19,4 @@ courses was chosen.
 
 Controllers were created for all four models, Waivers, Courses, Users, Admin.  This approach was taken so as to help
 ease the process of generating views for all the models and creating routes.   
+
