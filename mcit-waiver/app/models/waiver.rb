@@ -28,7 +28,6 @@ class Waiver < ActiveRecord::Base
     self.status ||= 'Pending'
   end
 
-
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.upenn.edu\Z/i
 
   validates_presence_of :first_name, :last_name, :email, :replacement_class, :taken_replacement_class, :course_id
@@ -44,6 +43,4 @@ class Waiver < ActiveRecord::Base
   searchable do
     text :comments, :first_name, :last_name, :email, :replacement_class, :taken_replacement_class, :waiver_class, :status, :course
   end
-
-  
 end

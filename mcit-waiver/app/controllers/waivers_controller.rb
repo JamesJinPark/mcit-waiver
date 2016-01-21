@@ -131,15 +131,14 @@ before_filter :check_user_logged_in!, only: [:edit, :approve, :deny, :destroy, :
   end
 
   private
-  def sort_column
-    Waiver.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
-  end
+    def sort_column
+      Waiver.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
+    end
 
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-  end
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
   
-  private 
     def check_admin_logged_in! # admin must be logged in
         authenticate_admin!
     end
@@ -149,6 +148,4 @@ before_filter :check_user_logged_in!, only: [:edit, :approve, :deny, :destroy, :
         authenticate_user!
       end   
     end
-
-
 end

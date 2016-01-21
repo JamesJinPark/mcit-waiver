@@ -99,7 +99,7 @@ before_filter :check_user_logged_in!, only: [:show, :index]
     end
   end
 
-  private 
+  private
     def check_admin_logged_in! # admin must be logged in
         authenticate_admin!
     end
