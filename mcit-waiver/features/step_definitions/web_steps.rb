@@ -61,7 +61,7 @@ Given /^I want to create a waiver$/ do
 end
 
 Given /^I want to create another waiver$/ do
-  Waiver.new(:first_name => "Josh", :last_name => "Kessler", :email => "josh@seas.upenn.edu", :replacement_class => "CIS 909", :taken_replacement_class => "No", :course_id => "1").save!
+  Waiver.new(:first_name => "Josh", :last_name => "Kessler", :email => "josh@seas.upenn.edu", :replacement_class => "CIS 909", :taken_replacement_class => "No", :course_id => "1", :status => "Approved").save!
 end
 
 When /^I want to open a test page$/ do
