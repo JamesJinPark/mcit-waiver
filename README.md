@@ -20,3 +20,6 @@ courses was chosen.
 Controllers were created for all four models, Waivers, Courses, Users, Admin.  This approach was taken so as to help
 ease the process of generating views for all the models and creating routes.   
 
+At minimum, each waiver request is required to have a first name, last name, email address, replacement class, boolean indicating whether the student has taken the replacement class, as well as the course that the student would like to waive. If instructors require additional information, they will be able to deny the waiver request and ask the student to resubmit another request. The email address requires a upenn.edu domain to prevent non-Penn affiliated people from creating extraneous submissions.
+
+The functionality implemented during this iteration fulfills the purpose of creating the project. The previous iteration allowed students to submit waivers, but this iteration allows instructors to approve and deny those waivers. Additional functionality beyond this iteration will certainly improve the project for its clients (i.e. instructors), but without the current features, the project would not have as much utility as is required by the clients. 
