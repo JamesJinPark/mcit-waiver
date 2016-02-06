@@ -1,10 +1,9 @@
+<h1>Waivers for <%= @course.name %></h1>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @course.name %>
   <% if (User.find_by_id(@course.user_id)) != nil %>
-    <b>Instructor:</b>
+    <b>Logged in as:</b>
     <%= @course.user.email %>
   <% end %>
 </p>

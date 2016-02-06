@@ -1,8 +1,69 @@
-<h1>Listing courses</h1>
+<p id="notice"><%= notice %></p>
 
-<table>
+
+  <% if user_signed_in? %>
+    <h1>Your Assigned Courses</h1>
+
+    <b>Logged in as:</b>
+    <%= current_user.email %>
+
+
+    <table>
+      <tr>
+        <th>Course</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+    <% @courses.each do |course| %>
+        <% if current_user.id == course.user_id %>
+        <tr>
+          <td><%= course.name %></td>
+          <td><%= link_to 'Show', course %></td>
+        </tr>
+        <% end %>
+    <% end %>
+    </table>
+
+  <% else %>
+    <h1>All Assigned Courses</h1>
+
+    <table>
+      <tr>
+        <th>Course</th>
+        <th>Instructor</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+    <% @courses.each do |course| %>
+        <tr>
+          <td><%= course.name %></td>
+          <% if (User.find_by_id(course.user_id)).nil? %>
+            <td><%= 'No Instructor Assigned' %></td>        
+          <% else %>
+            <td><%= course.user.email %></td>    
+          <% end %>
+          <td><%= link_to 'Show', course %></td>
+          <td><%= link_to 'Edit', edit_course_path(course) %></td>
+          <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    
+    <% end %>
+    </table>
+
+
+  <% end %>
+</p>
+
+
+
+
+<!-- <table>
   <tr>
-    <th>Name</th>
+    <th>Course</th>
     <th>Instructor</th>
     <th></th>
     <th></th>
@@ -33,7 +94,7 @@
   <% end %>
 
 <% end %>
-</table>
+</table> -->
 
 <br />
 
