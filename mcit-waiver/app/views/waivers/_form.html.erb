@@ -33,7 +33,8 @@
   </div>
   <div class="field">
     <%= f.label :taken_replacement_class %><br />
-    <%= f.text_field :taken_replacement_class %>
+    <%= f.select :taken_replacement_class, ['Yes','No'] %><br />
+    
   </div>
   <div class="field">
     <%= f.label :course_taken_website %><br />
