@@ -16,6 +16,7 @@
 #  course_id               :integer
 #  timestamp               :datetime
 #  documentation           :string(255)
+#  course_taken_website    :string(255)
 #
 
 module WaiversHelper
