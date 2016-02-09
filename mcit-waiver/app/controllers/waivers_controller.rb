@@ -83,7 +83,7 @@ before_filter :check_user_logged_in!, only: [:edit, :approve, :deny, :destroy, :
 
     respond_to do |format|
       if @waiver.save
-        format.html { redirect_to confirm_path, notice: 'Waiver was successfully created.' }
+        format.html { redirect_to confirm_path(:id => @waiver.id), notice: 'Waiver was successfully created.' }
         format.json { render json: @waiver, status: :created, location: @waiver }
       else
         format.html { render action: "new" }
@@ -133,7 +133,8 @@ before_filter :check_user_logged_in!, only: [:edit, :approve, :deny, :destroy, :
   end
 
   def confirm
-
+    @waiver = Waiver.find(params[:id])
+    WaiverMailer.confirmation_email(@waiver).deliver
   end
 
   private
