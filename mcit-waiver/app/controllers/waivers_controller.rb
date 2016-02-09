@@ -23,7 +23,7 @@
 class WaiversController < ApplicationController
 
 # checks that admin is logged in
-before_filter :check_admin_logged_in!, except: [:new, :create, :show, :edit, :approve, :deny, :destroy, :update_attribute, :update]
+before_filter :check_admin_logged_in!, except: [:confirm, :new, :create, :show, :edit, :approve, :deny, :destroy, :update_attribute, :update]
 
 # checks that instructor is logged in
 before_filter :check_user_logged_in!, only: [:edit, :approve, :deny, :destroy, :update_attribute, :update]
@@ -83,7 +83,7 @@ before_filter :check_user_logged_in!, only: [:edit, :approve, :deny, :destroy, :
 
     respond_to do |format|
       if @waiver.save
-        format.html { redirect_to @waiver, notice: 'Waiver was successfully created.' }
+        format.html { redirect_to confirm_path, notice: 'Waiver was successfully created.' }
         format.json { render json: @waiver, status: :created, location: @waiver }
       else
         format.html { render action: "new" }
@@ -130,6 +130,10 @@ before_filter :check_user_logged_in!, only: [:edit, :approve, :deny, :destroy, :
     @waiver = Waiver.find(params[:id])
     @waiver.update_attribute(:status, "Approved")
     redirect_to @waiver
+  end
+
+  def confirm
+
   end
 
   private

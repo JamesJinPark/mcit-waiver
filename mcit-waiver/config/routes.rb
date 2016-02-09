@@ -18,6 +18,8 @@ McitWaiver::Application.routes.draw do
 
   get "home/index"
 
+  get "confirm" => "waivers#confirm"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
