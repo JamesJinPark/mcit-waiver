@@ -17,11 +17,12 @@
 #  timestamp               :datetime
 #  documentation           :string(255)
 #  course_taken_website    :string(255)
+#  instructor_comments     :string(255)
 #
 
 class Waiver < ActiveRecord::Base
   belongs_to :course
-  attr_accessible :comments, :first_name, :last_name, :email, :replacement_class, :taken_replacement_class, :waiver_class, :status, :course_id, :course, :documentation, :course_taken_website
+  attr_accessible :comments, :first_name, :last_name, :email, :replacement_class, :taken_replacement_class, :waiver_class, :status, :course_id, :course, :documentation, :course_taken_website, :instructor_comments
   mount_uploader :documentation, DocumentationUploader
   
   before_save :default_values
@@ -42,6 +43,6 @@ class Waiver < ActiveRecord::Base
   validates_confirmation_of :email
 
   searchable do
-    text :comments, :first_name, :last_name, :email, :replacement_class, :taken_replacement_class, :waiver_class, :status, :course
+    text :comments, :instructor_comments, :first_name, :last_name, :email, :replacement_class, :taken_replacement_class, :waiver_class, :status, :course
   end
 end

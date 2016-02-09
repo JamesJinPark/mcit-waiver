@@ -21,7 +21,6 @@ before_filter :check_user_logged_in!, only: [:show, :index]
   # GET /courses.json
   def index
     @courses = Course.all
-    
 
     respond_to do |format|
       format.html # index.html.erb

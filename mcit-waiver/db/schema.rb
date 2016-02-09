@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160206182308) do
+ActiveRecord::Schema.define(:version => 20160206193230) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20160206182308) do
     t.datetime "timestamp"
     t.string   "documentation"
     t.string   "course_taken_website"
+    t.string   "instructor_comments"
   end
 
 end

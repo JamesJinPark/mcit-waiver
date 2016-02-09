@@ -51,6 +51,11 @@
   <%= @waiver.documentation.identifier %>
 </p>
 
+<p>
+  <b>Instructor Comments:</b>
+  <%= @waiver.instructor_comments %>
+</p>
+
 <% if admin_signed_in?%>
   <%= link_to 'Edit', edit_waiver_path(@waiver) %> |
   <%= link_to 'Back', waivers_path %>

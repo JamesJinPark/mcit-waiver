@@ -17,6 +17,7 @@
 #  timestamp               :datetime
 #  documentation           :string(255)
 #  course_taken_website    :string(255)
+#  instructor_comments     :string(255)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

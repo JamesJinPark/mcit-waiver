@@ -17,6 +17,7 @@
 #  timestamp               :datetime
 #  documentation           :string(255)
 #  course_taken_website    :string(255)
+#  instructor_comments     :string(255)
 #
 
 require 'test_helper'
