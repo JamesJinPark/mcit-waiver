@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Waiver Approval Confirmation</h1>
+    <p>Your waiver application has been approved, <%= @waiver.first_name %>.</p>
+<p>    Waiver details: </p>
+<p>
+    </p>
+<p>First name:           <%= @waiver.first_name %></p>
+<p>Last name:            <%= @waiver.last_name %></p>
+<p>Your email:           <%= @waiver.email %></p>
+<p>Class you requested to waive:   <%= @waiver.course.name %></p>
+<p>Replacement class:        <%= @waiver.replacement_class %></p>
+<p>Taken replacement class?:   <%= @waiver.taken_replacement_class %></p>
+<p>Additionally Comments:      <%= @waiver.comments %></p>
+    <p>
+    </p>
+    <p>Please keep this email for your records.</p>
+  </body>
+</html>

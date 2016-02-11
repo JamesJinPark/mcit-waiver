@@ -28,6 +28,7 @@ gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem "sunspot_test"
 gem 'progress_bar'
+gem 'activesupport'
 gem 'carrierwave'
 
 # To use ActiveModel has_secure_password

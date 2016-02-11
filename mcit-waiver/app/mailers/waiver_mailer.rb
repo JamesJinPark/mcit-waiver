@@ -7,6 +7,17 @@ class WaiverMailer < ActionMailer::Base
 
   end
 
+  def waiver_approved_email(waiver)
+    @waiver = waiver
+    mail(to: @waiver.email, subject: 'Waiver Application Results')
+  end
+
+  def waiver_denied_email(waiver)
+    @waiver = waiver
+    mail(to: @waiver.email, subject: 'Waiver Application Results')
+  end
+
+
 end
 
 

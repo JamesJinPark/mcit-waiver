@@ -123,12 +123,14 @@ before_filter :check_user_logged_in!, only: [:edit, :approve, :deny, :destroy, :
   def deny
     @waiver = Waiver.find(params[:id])
     @waiver.update_attribute(:status, "Denied")
+    WaiverMailer.waiver_denied_email(@waiver).deliver    
     redirect_to @waiver
   end
 
   def approve
     @waiver = Waiver.find(params[:id])
     @waiver.update_attribute(:status, "Approved")
+    WaiverMailer.waiver_approved_email(@waiver).deliver 
     redirect_to @waiver
   end
 
@@ -136,6 +138,8 @@ before_filter :check_user_logged_in!, only: [:edit, :approve, :deny, :destroy, :
     @waiver = Waiver.find(params[:id])
     WaiverMailer.confirmation_email(@waiver).deliver
   end
+
+  
 
   private
     def sort_column
