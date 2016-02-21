@@ -23,10 +23,12 @@
 class WaiversController < ApplicationController
 
 # checks that admin is logged in
-before_filter :check_admin_logged_in!, except: [:confirm, :new, :create, :show, :edit, :approve, :deny, :destroy, :update_attribute, :update]
+before_filter :check_admin_logged_in!, except: [:confirm, :new, :create, 
+  :show, :edit, :approve, :deny, :destroy, :update_attribute, :update]
 
 # checks that instructor is logged in
-before_filter :check_user_logged_in!, only: [:edit, :approve, :deny, :destroy, :update_attribute, :update]
+before_filter :check_user_logged_in!, only: [:edit, :approve, :deny, 
+  :destroy, :update_attribute, :update]
 
   # GET /waivers
   # GET /waivers.json

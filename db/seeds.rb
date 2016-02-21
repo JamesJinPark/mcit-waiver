@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-#Course.create([{name: 'CIT591'}, {name: 'CIT592'}, {name: 'CIT593'}, {name: 'CIT594'}, {name: 'CIT595'}, {name: 'CIT596'}])
+Course.create([{name: 'CIT591'}, {name: 'CIT592'}, {name: 'CIT593'}])
 
-#User.create([{email: 'james@mcitwaiver.com', password: '1234567890'}])
+Admin.create([{email: 'admin@seas.upenn.edu', password: '1234567890'}])
+
+User.create([{email: 'james@seas.upenn.edu', password: '1234567890'}])

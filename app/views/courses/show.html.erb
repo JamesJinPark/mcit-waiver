@@ -3,12 +3,11 @@
 <p id="notice"><%= notice %></p>
 
   <% if (User.find_by_id(@course.user_id)) != nil %>
-    <b>Logged in as:</b>
+    <b>Course Instructor:</b>
     <%= @course.user.email %>
   <% end %>
 </p>
 
-<table class="table">
 <table class="table">
   <tr>
     <th>Timestamp</th>

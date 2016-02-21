@@ -42,7 +42,7 @@ class Waiver < ActiveRecord::Base
   validates_format_of :email, :with => EMAIL_REGEX, :message =>"must be a Penn email address."
   validates_confirmation_of :email
 
-  searchable do
-    text :comments, :instructor_comments, :first_name, :last_name, :email, :replacement_class, :taken_replacement_class, :waiver_class, :status, :course
-  end
+#  searchable do
+ #   text :comments, :instructor_comments, :first_name, :last_name, :email, :replacement_class, :taken_replacement_class, :waiver_class, :status, :course
+  #end
 end

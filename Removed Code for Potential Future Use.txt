@@ -1,0 +1,11 @@
+#search bar at waivers index
+
+<!--
+<%= # form_tag waivers_path, :method => :get do %>
+  <p>
+    <%= # text_field_tag :search, params[:search] %>
+    <%= # submit_tag "Search", :name => nil %>
+  </p>
+<% # end %>  Note: # added to html tags to comment out erb-->
+
+
