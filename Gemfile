@@ -5,9 +5,6 @@ gem 'rails', '3.2.21'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -24,9 +21,9 @@ gem 'jquery-rails'
 gem 'cucumber'
 gem 'annotate'
 gem 'devise'
-gem 'sunspot_rails'
-gem 'sunspot_solr'
-gem "sunspot_test"
+#gem 'sunspot_rails'
+#gem 'sunspot_solr'
+#gem "sunspot_test"
 gem 'progress_bar'
 gem 'activesupport'
 gem 'carrierwave'
@@ -47,9 +44,14 @@ gem 'carrierwave'
 # gem 'debugger'
 
 group :test, :development do
+	gem 'sqlite3' #use sqlite3 only for development on local machines
 	gem 'cucumber-rails', :require => false
 	gem 'cucumber-rails-training-wheels'
 	gem 'database_cleaner'
 	gem 'capybara'
 	gem 'launchy'
+end
+
+group :production do
+	gem 'pg' #post gres for production
 end
