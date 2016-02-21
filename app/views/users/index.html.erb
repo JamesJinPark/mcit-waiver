@@ -1,0 +1,26 @@
+<h1>Listing Instructors</h1>
+
+<table>
+  <tr>
+    <th>Instructor</th>
+    <th>Options</th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.email %></td>
+	<td><%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "Are you sure?" } %></td>
+  </tr>
+  <% end %>
+</table>
+
+<% if user_signed_in? %>
+<%= link_to('Instructor Logout', destroy_user_session_path, method: :delete) %>
+<% end %>
+<br />
+
+<% if admin_signed_in? %>
+<%= link_to 'Add New Instructor', new_user_registration_path  %><br />
+<%= link_to "Administrator Dashboard", admin_path %>
+<%end%>
