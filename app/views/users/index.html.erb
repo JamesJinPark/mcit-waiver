@@ -22,5 +22,6 @@
 
 <% if admin_signed_in? %>
 <%= link_to 'Add New Instructor', new_user_registration_path  %><br />
+<%= link_to('Admin Logout', destroy_admin_session_path, method: :delete) %></br>
 <%= link_to "Administrator Dashboard", admin_path %>
 <%end%>
