@@ -1,6 +1,7 @@
 <h1>Listing waivers</h1>
-
-<table class="table">
+<div class="table-responsive">
+<table class="table table-striped">
+    <thead>
   <tr>
     <th><%= sortable "created_at", "Timestamp" %></th>
     <th><%= sortable "first_name" %></th>
@@ -17,6 +18,7 @@
     <th></th>
     <th></th>
   </tr>
+</thead>
 
 <% @waivers.each do |waiver| %>
   <tr>
@@ -37,18 +39,17 @@
   </tr>
 <% end %>
 </table>
+</div>
 
 <br />
 
 
-<%= link_to 'New Waiver', new_waiver_path %>
+<%= link_to 'New Waiver', new_waiver_path, class: "btn btn-lg btn-default" %>
 
-<br />
 <% if user_signed_in? %>
-<%= link_to('Instructor Logout', destroy_user_session_path, method: :delete) %>
+<%= link_to('Instructor Logout', destroy_user_session_path, method: :delete, class: "btn btn-lg btn-default") %>
 <% end %>
-<br />
 <% if admin_signed_in? %>
-<%= link_to('Admin Logout', destroy_admin_session_path, method: :delete) %></br>
-<%= link_to "Administrator Dashboard", admin_path %>
+<%= link_to('Admin Logout', destroy_admin_session_path, method: :delete, class: "btn btn-lg btn-default") %>
+<%= link_to "Administrator Dashboard", admin_path, class: "btn btn-lg btn-default" %>
 <% end %>

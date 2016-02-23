@@ -1,34 +1,27 @@
+<div class="text-center">
+
 <h1>Admin Dashboard</h1>
 
 <h2>Instructors</h2>
-<ul>
+<ul class="list-unstyled">
 	<li>
-		<%= link_to "List of All Instructors", users_path %>
-	</li>
-	<li>
-		<%= link_to "Add New Instructor", new_user_registration_path %>
+		<%= link_to "List of All Instructors", users_path, :class => "btn btn-lg btn-default"  %> <%= link_to "Add New Instructor", new_user_registration_path, :class => "btn btn-lg btn-default"  %>
 	</li>
 </ul>
 
 <h2>Courses</h2>
-<ul>
+<ul class="list-unstyled">
 	<li>
-		<%= link_to "List of All Courses", courses_path %>
-	</li>
-	<li>
-		<%= link_to "Add New Course", new_course_path %>
+		<%= link_to "List of All Courses", courses_path, :class => "btn btn-lg btn-default"  %> <%= link_to "Add New Course", new_course_path, :class => "btn btn-lg btn-default"  %>
 	</li>
 </ul>
 
 <h2>Waivers</h2>
-<ul>
+<ul class="list-unstyled">
 	<li>
-		<%= link_to "List of All Waivers", waivers_path %>
+		<%= link_to "List of All Waivers", waivers_path, :class => "btn btn-lg btn-default"  %> <%= link_to "See Data on Waivers", data_path, :class => "btn btn-lg btn-default"  %>
 	</li>
-	<li>
-		<%= link_to "See Data on Waivers", data_path %>
-	</li>
-
 </ul>
-
-<%= link_to('Admin Logout', destroy_admin_session_path, method: :delete) %>
+<br>
+<%= link_to('Admin Logout', destroy_admin_session_path, method: :delete, :class => "btn btn-lg btn-default" ) %>
+</div>
