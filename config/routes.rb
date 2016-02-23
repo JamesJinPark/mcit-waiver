@@ -6,7 +6,6 @@ McitWaiver::Application.routes.draw do
   # devise_for :users
   devise_for :users, :controllers => {:registrations => "registrations"}
 
-
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
   match 'users/:id' => 'users#show', as: :user
  
@@ -82,6 +81,8 @@ McitWaiver::Application.routes.draw do
       post 'deny'
     end
   end
+
+  get "data" => "waivers#data"
 
   resources :waivers do
     member do

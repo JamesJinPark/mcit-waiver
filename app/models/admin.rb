@@ -32,7 +32,7 @@ class Admin < ActiveRecord::Base
   validates_confirmation_of :email, :password
   validates_format_of :email, :with => EMAIL_REGEX, :message =>"must be a Penn email address."
   validates_length_of :email, :maximum => 100
-  validates_length_of :password, :minimum => 10
+  validates_length_of :password, :minimum => 8
   validates_uniqueness_of :email
   validates_confirmation_of :email
 

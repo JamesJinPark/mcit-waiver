@@ -17,6 +17,9 @@ before_filter :check_admin_logged_in!, except: [:show, :index]
 # checks that instructor is logged in
 before_filter :check_user_logged_in!, only: [:show, :index]
 
+#trying to make course show page to also include sortable columns
+helper_method :sort_column, :sort_direction
+
   # GET /courses
   # GET /courses.json
   def index
@@ -31,6 +34,10 @@ before_filter :check_user_logged_in!, only: [:show, :index]
   # GET /courses/1
   # GET /courses/1.json
   def show
+
+    #@course = Course.find(params[:id])
+
+    #trying to make course show page to also include sortable columns
     @course = Course.find(params[:id])
 
     respond_to do |format|
@@ -108,6 +115,14 @@ before_filter :check_user_logged_in!, only: [:show, :index]
       if !admin_signed_in?
         authenticate_user!
       end   
+    end
+
+    def sort_column
+      Waiver.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 
 end

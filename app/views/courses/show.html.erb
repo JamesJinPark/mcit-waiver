@@ -10,22 +10,21 @@
 
 <table class="table">
   <tr>
-    <th>Timestamp</th>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Email address</th>
-    <th>Waiver class</th>
-    <th>Replacement class</th>
-    <th>Taken replacement class</th>
-    <th>Comments</th>
-    <th>Status</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th><%= sortable "created_at", "Timestamp" %></th>
+    <th><%= sortable "first_name" %></th>
+    <th><%= sortable "last_name" %></th>
+    <th><%= sortable "email" %></th>
+    <th><%= sortable "waiver_class" %></th>
+    <th><%= sortable "replacement_class" %></th>
+    <th><%= sortable "taken_replacement_class" %></th>
+    <th><%= sortable "comments" %></th>
+    <th><%= sortable "status" %></th>
+    <th><%= sortable "documentation", "Attachments" %></th>
     <th></th>
     <th></th>
   </tr>
-<% @course.waivers.each do |waiver| %>
+
+<% @course.waivers.order(sort_column + " " + sort_direction).each do |waiver| %>
   <tr>
     <td><%= waiver.created_at %></td>
     <td><%= waiver.first_name %></td>
@@ -37,8 +36,24 @@
     <td><%= waiver.comments %></td>
     <td><%= waiver.status %></td>
     <td><%= link_to 'Attachment', waiver.documentation.url %></td>
-    <td><%= link_to 'Show', waiver %><br /><%= link_to 'Edit', edit_waiver_path(waiver) %><br /><%= link_to 'Delete', waiver, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <td><%= link_to 'Deny', deny_waiver_path(waiver), method: :post %><br /><%= link_to 'Approve', approve_waiver_path(waiver), method: :post %></td>
+    <td>
+      <%= link_to 'Show', waiver %><br />
+    
+    <!-- Instructors do not have the ability to edit or delete waivers but the administrator does
+      
+      <% if admin_signed_in? %>
+        <%= link_to 'Edit', edit_waiver_path(waiver) %><br />
+        <%= link_to 'Delete', waiver, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    -->
+    
+    </td>
+
+    <td>
+
+      <%= link_to 'Deny', deny_waiver_path(waiver), method: :post %><br />
+      <%= link_to 'Approve', approve_waiver_path(waiver), method: :post %></td>
+
   </tr>
 <% end %>
 </table>

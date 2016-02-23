@@ -1,0 +1,49 @@
+<html>
+<h1>Data on Waivers</h1>
+
+<table class="table">
+  <tr>
+    <th>Total number of waivers</th>
+    <th>Total number of approved waivers</th>
+    <th>Total number of denied waivers</th>
+    <th>Waivers by Semester</th>
+    <th>Waivers by Course</th>
+  </tr>
+
+<% @waivers.each do |waiver| %>
+  <tr>
+    <td><%= @waivers.length %></td>
+    <td><%= @waivers.select{|waiver| waiver.status == "Approved"}.length %></td>
+    <td><%= @waivers.select{|waiver| waiver.status == "Denied"}.length %></td>
+    <td>
+    
+    <% @waivers.each do |waiver_to_get_year| %>
+		<% @fall_waivers = 0 %>
+		<% @spring_waivers = 0 %>
+		<% @waivers.each do |waiver| 
+			if waiver.created_at.month > 7 
+				@fall_waivers = @fall_waivers + 1
+			else 
+				@spring_waivers = @spring_waivers + 1
+				@years = waiver.created_at.year
+			end %>
+		<% end %>
+		Fall <%= waiver_to_get_year.created_at.year %> waivers = <%= @fall_waivers %></br>
+		Spring <%= waiver_to_get_year.created_at.year %> waivers = <%= @spring_waivers %></br>
+	<% end %>
+
+    </td>
+
+    <td>
+
+	<% @waivers.each do |waiver_to_get_course| %>
+		<%= waiver_to_get_course.course.name %> = <%=  waiver_to_get_course.course.waivers.length %></br>
+	<% end %>
+
+    </td>
+
+  </tr>
+<% end %>
+</table>
+
+</html>

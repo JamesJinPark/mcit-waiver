@@ -45,5 +45,6 @@
 <% end %>
 <br />
 <% if admin_signed_in? %>
-<%= link_to('Admin Logout', destroy_admin_session_path, method: :delete) %>
+<%= link_to('Admin Logout', destroy_admin_session_path, method: :delete) %></br>
+<%= link_to "Administrator Dashboard", admin_path %>
 <% end %>
