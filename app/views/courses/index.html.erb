@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-
   <% if user_signed_in? %>
     <h1>Your Assigned Courses</h1>
 
@@ -67,6 +66,6 @@
 
 <% if admin_signed_in? %>
 <%= link_to 'Add New Course', new_course_path %><br />
-<%= link_to('Admin Logout', destroy_admin_session_path, method: :delete) %>
+<%= link_to('Admin Logout', destroy_admin_session_path, method: :delete) %><br />
 <%= link_to "Administrator Dashboard", admin_path %>
 <%end%>

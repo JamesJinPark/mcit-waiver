@@ -138,6 +138,9 @@ before_filter :check_user_logged_in!, only: [:show, :approve, :deny, :update_att
   def confirm
     @waiver = Waiver.find(params[:id])
     WaiverMailer.confirmation_email(@waiver).deliver
+    if @waiver.course.email_opt_in
+      WaiverMailer.instructor_notification_email(@waiver).deliver
+    end
   end
 
   def data

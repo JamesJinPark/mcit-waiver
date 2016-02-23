@@ -2,20 +2,21 @@
 #
 # Table name: courses
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :integer
+#  id           :integer          not null, primary key
+#  name         :string(255)
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  user_id      :integer
+#  email_opt_in :boolean
 #
 
 class CoursesController < ApplicationController
 
 # checks that admin is logged in
-before_filter :check_admin_logged_in!, except: [:show, :index]
+before_filter :check_admin_logged_in!, except: [:show, :index, :subscribe, :unsubscribe]
 
 # checks that instructor is logged in
-before_filter :check_user_logged_in!, only: [:show, :index]
+before_filter :check_user_logged_in!, only: [:show, :index, :subscribe, :unsubscribe]
 
 #trying to make course show page to also include sortable columns
 helper_method :sort_column, :sort_direction
@@ -104,6 +105,18 @@ helper_method :sort_column, :sort_direction
       format.html { redirect_to courses_url }
       format.json { head :no_content }
     end
+  end
+
+  def subscribe
+    @course = Course.find(params[:id])
+    @course.update_attribute(:email_opt_in, true)
+    redirect_to @course, notice: 'Successfully subscribed to email notifications.' 
+  end
+
+  def unsubscribe
+    @course = Course.find(params[:id])
+    @course.update_attribute(:email_opt_in, false)
+    redirect_to @course, notice: 'Unsubscribed from email notifications.' 
   end
 
   private

@@ -1,0 +1,14 @@
+New waiver notification. 
+
+===============================================
+ 
+Waiver details
+
+First name:           <%= @waiver.first_name %>
+Last name:            <%= @waiver.last_name %>
+Student email:           <%= @waiver.email %>
+Class requested to waive:   <%= @waiver.course.name %>
+Replacement class:        <%= @waiver.replacement_class %>
+Taken replacement class?:   <%= @waiver.taken_replacement_class %>
+
+Additionally Comments:      <%= @waiver.comments %>

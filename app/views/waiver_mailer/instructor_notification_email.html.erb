@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>New Waiver Submission Notification</h1>
+<p>    Waiver details</p>
+<p>
+    </p>
+<p>First name:           <%= @waiver.first_name %></p>
+<p>Last name:            <%= @waiver.last_name %></p>
+<p>Student email:           <%= @waiver.email %></p>
+<p>Class student requested to waive:   <%= @waiver.course.name %></p>
+<p>Replacement class:        <%= @waiver.replacement_class %></p>
+<p>Taken replacement class?:   <%= @waiver.taken_replacement_class %></p>
+<p>Additionally Comments:      <%= @waiver.comments %></p>
+    <p>
+    </p>
+  </body>
+</html>
