@@ -41,10 +41,17 @@
     <%= f.text_field :course_taken_website %>
   </div>
   <div class="field">
-    <%= f.label :documentation_upload %><br />
+    <b>Syllabus</b> (PDFs only) <br />
     <%= f.file_field :documentation %>
   </div>
-
+  <div class="field">
+    <%= f.label :transcript %> (PDFs only) <br />
+    <%= f.file_field :transcript %>
+  </div>
+  <div class="field">
+    <%= f.label :additional_documentation %><br />
+    <%= f.file_field :additional_documentation %>
+  </div>
   <div class="field">
     <%= f.label :comments %><br />
     <%= f.text_area :comments %>

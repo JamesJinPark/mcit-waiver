@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160223085056) do
+ActiveRecord::Schema.define(:version => 20160223145019) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(:version => 20160223085056) do
     t.string   "replacement_class"
     t.string   "taken_replacement_class"
     t.text     "comments"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
     t.string   "email"
     t.string   "status"
     t.integer  "course_id"
@@ -73,6 +73,8 @@ ActiveRecord::Schema.define(:version => 20160223085056) do
     t.string   "documentation"
     t.string   "course_taken_website"
     t.string   "instructor_comments"
+    t.string   "transcript"
+    t.string   "additional_documentation"
   end
 
 end
