@@ -31,7 +31,9 @@
     <th><%= sortable "taken_replacement_class" %></th>
     <th><%= sortable "comments" %></th>
     <th><%= sortable "status" %></th>
-    <th><%= sortable "documentation", "Attachments" %></th>
+    <th><%= sortable "documentation", "Syllabus" %></th>
+    <th><%= sortable "transcript", "Transcript" %></th>
+    <th><%= sortable "additional_documentation", "Additional Documentation" %></th>
     <th></th>
     <th></th>
   </tr>
@@ -47,7 +49,9 @@
     <td><%= waiver.taken_replacement_class %></td>
     <td><%= waiver.comments %></td>
     <td><%= waiver.status %></td>
-    <td><%= link_to 'Attachment', waiver.documentation.url %></td>
+    <td><%= link_to 'Syllabus', waiver.documentation.url %></td>
+    <td><%= link_to 'Transcript', waiver.transcript.url %></td>
+    <td><%= link_to 'Additional Documentation', waiver.additional_documentation.url %></td>
     <td>
       <%= link_to 'Show', waiver %><br />
     
