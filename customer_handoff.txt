@@ -1,0 +1,15 @@
+1. What is MCIT Waiver?
+
+2. How does someone submit a waiver
+
+3. How does an instructor: view, approve, deny
+
+4. Summary of each class/features that have been implemented 
+
+5. Known bugs
+
+6. Git repo information
+
+7. How to run the server(s)
+
+8. Anything else that would be important for future developers
