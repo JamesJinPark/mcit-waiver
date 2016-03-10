@@ -1,14 +1,25 @@
 <h1>MCIT Waivers</h1>
 
-<p>
-<%= link_to "For Students", new_waiver_path %>
-</p>
+<h2>I am a...<h2>
 
-<p>
-<%= link_to "For Instructors", courses_path%>
-</p>
+<div class="row">
 
-<p>
-<%= link_to "For Administrator", admin_path %>
-</p>
+	<div class="col-md-4">
+		<p>
+			<%= link_to "Student", new_waiver_path %>
+		</p>
+	</div>
 
+	<div class="col-md-4">
+		<p>
+			<%= link_to "Instructor", courses_path%>
+		</p>
+	</div>
+
+	<div class="col-md-4">		
+		<p>
+			<%= link_to "Administrator", admin_path %>
+		</p>
+	</div>
+
+</div>
