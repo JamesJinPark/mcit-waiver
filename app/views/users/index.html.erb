@@ -1,14 +1,13 @@
+<% if admin_signed_in? %>
+
 <h1>Listing Instructors</h1>
 
-<div class="table-responsive">
-    <table class="table table-striped">
-  <thead>
+<table>
   <tr>
     <th>Instructor</th>
     <th>Options</th>
     <th></th>
   </tr>
-</thead>
 
 <% @users.each do |user| %>
   <tr>
@@ -17,7 +16,6 @@
   </tr>
   <% end %>
 </table>
-</div>
 
 <% if user_signed_in? %>
 <%= link_to('Instructor Logout', destroy_user_session_path, method: :delete) %>
@@ -25,7 +23,21 @@
 <br />
 
 <% if admin_signed_in? %>
-<%= link_to 'Add New Instructor', new_user_registration_path, class: "btn btn-lg btn-default"  %>
-<%= link_to('Admin Logout', destroy_admin_session_path, method: :delete, class: "btn btn-lg btn-default") %>
-<%= link_to "Administrator Dashboard", admin_path, class: "btn btn-lg btn-default" %>
+<%= link_to 'Add New Instructor', new_user_registration_path  %><br />
+<%= link_to('Admin Logout', destroy_admin_session_path, method: :delete) %></br>
+<%= link_to "Administrator Dashboard", admin_path %>
 <%end%>
+
+<% else %>
+
+
+<html><head>
+<title>403 Forbidden</title>
+</head><body>
+<h1>Forbidden</h1>
+<br />
+<p>You don't have permission to access /users on this server.<br />
+</p>
+</body></html>
+
+<% end %>

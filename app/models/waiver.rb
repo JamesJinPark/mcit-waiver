@@ -24,10 +24,13 @@
 
 class Waiver < ActiveRecord::Base
   belongs_to :course
-  attr_accessible :comments, :first_name, :last_name, :email, :replacement_class, :taken_replacement_class, :waiver_class, :status, :course_id, :course, :documentation, :additional_documentation, :transcript, :course_taken_website, :instructor_comments
+  attr_accessible :comments, :first_name, :last_name, :email, :replacement_class, 
+    :taken_replacement_class, :waiver_class, :status, :course_id, :course, 
+    :documentation, :course_taken_website, :instructor_comments, 
+    :additional_documentation, :transcript
   mount_uploader :documentation, DocumentationUploader
-  mount_uploader :transcript, TranscriptUploader
   mount_uploader :additional_documentation, AdditionalDocumentationUploader
+  mount_uploader :transcript, TranscriptUploader
   
   before_save :default_values
   def default_values

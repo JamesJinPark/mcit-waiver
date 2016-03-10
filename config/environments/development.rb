@@ -36,13 +36,13 @@ McitWaiver::Application.configure do
   config.assets.debug = true
 
   config.action_mailer.delivery_method = :smtp
-  #config.action_mailer.default_url_options = {:host => 'localhost:3000'} #must change to url of production app
+  config.action_mailer.default_url_options = {:host => 'localhost:3000'} #must change to url of production app
   config.action_mailer.smtp_settings ={
     :address => "smtp.gmail.com",
     :port => "587",
     :domain => "gmail.com",
-    :user_name => ENV["GMAIL"]||"McitWaiver@gmail.com",
-    :password => ENV["PASSWORD"]||"McitWaiver1234567890",
+    :user_name => ENV["GMAIL"]||"McitWaiver@gmail.com",#must set the variables yourself! 
+    :password => ENV["PASSWORD"]||"mcitwaiver@gmail.com1234567890",#must set the variables yourself!
     :authentication => "plain",
     :enable_starttls_auto => true
   }
