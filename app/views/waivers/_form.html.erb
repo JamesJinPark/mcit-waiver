@@ -1,3 +1,6 @@
+
+<div class="input-group" id="form">
+
 <%= form_for @waiver, :html => {:multipart => true} do |f| %>
   <% if @waiver.errors.any? %>
     <div id="error_explanation">
@@ -12,24 +15,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name, placeholder: "First name"%>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, placeholder: "Last name" %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.text_field :email, placeholder: "Email address" %>
   </div>
   <div class="field">
     <%= f.label :course %><br />
     <%= collection_select(:waiver, :course_id, Course.all, :id, :name) %><br />
   </div> 
   <div class="field">
-    <%= f.label :replacement_class %><br />
-    <%= f.text_field :replacement_class %>
+    <%= f.text_field :replacement_class, placeholder: "Replacement class"%>
   </div>
   <div class="field">
     <%= f.label :taken_replacement_class %><br />
@@ -37,8 +36,7 @@
     
   </div>
   <div class="field">
-    <%= f.label :course_taken_website %><br />
-    <%= f.text_field :course_taken_website %>
+    <%= f.text_field :course_taken_website, placeholder: "Course taken website" %>
   </div>
   <div class="field">
     <p>Syllabus</p>
@@ -55,13 +53,12 @@
   </div>
 
   <div class="field">
-    <%= f.label :comments %><br />
-    <%= f.text_area :comments %>
+    <%= f.text_area :comments, placeholder: "Additional comments" %>
   </div>
 
   <div class="actions">
     <%= f.submit %>
   </div>
 
-
+</div>
 <% end %>
