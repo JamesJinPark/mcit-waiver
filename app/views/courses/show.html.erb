@@ -57,15 +57,6 @@
     <td><%= link_to 'Additional Documentation', waiver.additional_documentation.url %></td>
     <td>
       <%= link_to 'Show', waiver %><br />
-    
-    <!-- Instructors do not have the ability to edit or delete waivers but the administrator does
-      
-      <% if admin_signed_in? %>
-        <%= link_to 'Edit', edit_waiver_path(waiver) %><br />
-        <%= link_to 'Delete', waiver, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
-    -->
-    
     </td>
 
     <td>

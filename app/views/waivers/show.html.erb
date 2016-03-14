@@ -1,72 +1,72 @@
-<p id="notice"><%= notice %></p>
-<p>
-  <b>Timestamp:</b>
-  <%= @waiver.created_at %>
-</p>
+<div class="row">
 
-<p>
-  <b>First name:</b>
-  <%= @waiver.first_name %>
-</p>
+  <div class="col-md-offset-3 col-md-6">
 
-<p>
-  <b>Last name:</b>
-  <%= @waiver.last_name %>
-</p>
+    <div id="waivers-show">
 
-<p>
-  <b>Email address:</b>
-  <%= @waiver.email %>
-</p>
-<p>
-  <b>Course:</b>
-  <%= @waiver.course.name %>
-</p>
-<p>
-  <b>Replacement class:</b>
-  <%= @waiver.replacement_class %>
-</p>
+      <p id="notice"><%= notice %></p>
+            <h2><%= @waiver.first_name %> <%= @waiver.last_name %></h2>
+      <h4><%= @waiver.email %></h4>
 
-<p>
-  <b>Replacement class website:</b>
-  <%= @waiver.course_taken_website %>
-</p>
+      <% if @waiver.status == "Denied" %>
+      <dl class="dl-horizontal bg-danger">
+        <dt>Status:</dt>
+          <dd><%= @waiver.status %></dd>
+      </dl>
+      <% end %>
 
-<p>
-  <b>Taken replacement class:</b>
-  <%= @waiver.taken_replacement_class %>
-</p>
+      <% if @waiver.status == "Approved" %>
+      <dl class="dl-horizontal bg-success">
+        <dt>Status:</dt>
+          <dd><%= @waiver.status %></dd>
+      </dl>
+      <% end %>
 
-<p>
-  <b>Comments:</b>
-  <%= @waiver.comments %>
-</p>
+      <% if @waiver.status == "Pending" %>
+      <dl class="dl-horizontal bg-warning">
+        <dt>Status:</dt>
+          <dd><%= @waiver.status %></dd>
+      </dl>
+      <% end %>
+      
+      <dl class="dl-horizontal">
+        <dt>Submitted:</dt>
+        <dd><%= @waiver.created_at %></dd>
+      </dl>
 
-<p>
-  <b>Status:</b>
-  <%= @waiver.status %>
-</p>
-<p>
-  <b>Syllabus:</b>
-  <%= @waiver.documentation.identifier %>
-</p>
-<p>
-  <b>Transcript:</b>
-  <%= @waiver.transcript.identifier %>
-</p>
-<p>
-  <b>Additional documentation:</b>
-  <%= @waiver.additional_documentation.identifier %>
-</p>
+      <dl class="dl-horizontal">
+        <dt>Waive Course:</dt>
+        <dd><%= @waiver.course.name %></dd>
+      </dl>
 
-<p>
-  <b>Comments:</b>
-  <%= @waiver.comments %>
-</p>
+      <dl class="dl-horizontal">
+        <dt>Replacement Course:</dt>
+        <dd><%= @waiver.replacement_class %></dd>
+        <dd><%= @waiver.course_taken_website %></dd>
+        <dt>Already Taken?</dt>
+        <dd><%= @waiver.taken_replacement_class %></dd>
+      </dl>
 
-<% if admin_signed_in?%>
-  <%= link_to 'Edit', edit_waiver_path(@waiver) %> |
-  <%= link_to 'Back', waivers_path %>
-<% elsif user_signed_in? %>
-  <%= link_to 'Back', course_path(@waiver.course_id) %>
-<% end %>
+      <dl class="dl-horizontal">
+        <dt>Comments:</dt>
+        <dd><%= @waiver.comments %></dd>
+        <dt>Attachments:</dt>
+        <dd><%= @waiver.documentation.identifier %></dd>
+        <dd><%= @waiver.transcript.identifier %></dd>
+        <dd><%= @waiver.additional_documentation.identifier %></dd>
+      </dl>
+      
+      <% if admin_signed_in?%>
+        <%= link_to 'Edit', edit_waiver_path(@waiver), class: "btn btn-lg btn-default center-block"  %>
+        <br />
+        <%= link_to 'Back', waivers_path, class: "btn btn-lg btn-default center-block"  %>
+
+      <% elsif user_signed_in? %>
+        <%= link_to 'Back', course_path(@waiver.course_id), class: "btn btn-lg btn-default center-block"  %>
+      <% end %>
+
+    </div>
+
+  </div>
+
+</div>
