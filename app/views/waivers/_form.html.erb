@@ -1,64 +1,99 @@
+<div class = "row form-group">
+  <div class="col-md-6 col-md-offset-3">
+      <form class="form-signin">
 
-<div class="input-group" id="form">
+        <%= form_for @waiver, :html => {:multipart => true} do |f| %>
+          <% if @waiver.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@waiver.errors.count, "error") %> prohibited this waiver from being saved:</h2>
 
-<%= form_for @waiver, :html => {:multipart => true} do |f| %>
-  <% if @waiver.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@waiver.errors.count, "error") %> prohibited this waiver from being saved:</h2>
+              <ul>
+              <% @waiver.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
 
-      <ul>
-      <% @waiver.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+          <div class="field form-control">
+<!--             <label class: "sr-only"><%= f.label :first_name %></label><br />
+ -->            <%= f.text_field :first_name, placeholder: "First Name"%>
+          </div>
+          <div class="field form-control">
+<!--             <%= f.label :last_name %><br />
+ -->            <%= f.text_field :last_name, placeholder: "Last Name" %>
+          </div>
+          <div class="field form-control">
+<!--             <%= f.label :email %><br />
+ -->            <%= f.text_field :email, placeholder: "Email Address" %>
+          </div>
+
+          <div class="field">
+            <label><b>Course: </b></label>
+            <%= collection_select(:waiver, :course_id, Course.all, :id, :name, :class => "form-control") %><br />
+          </div> 
+          <div class="field form-control">
+            <!-- <%= f.label :replacement_class %><br /> -->
+            <%= f.text_field :replacement_class, placeholder: "Replacement Class" %>
+          </div>
+          <div class="field">
+            <label><b>Taken Replacement Class: </b></label>
+<!--             <%= f.label :taken_replacement_class %><br />
+ -->            <%= f.select :taken_replacement_class, ['Yes','No'] %><br />
+            
+          </div>
+          <div class="field form-control">
+<!--             <%= f.label :course_taken_website %><br />
+ -->            <%= f.text_field :course_taken_website, placeholder: "Course Taken Website"  %>
+          </div>
+
+
+          <div class="field">
+            <label class="myLabel">
+            <b>Syllabus</b> (PDFs only) <br />
+            <span class="btn btn-default btn-file">
+            <%= f.file_field :documentation %>
+            Choose File
+            </span>
+          </label>
+          </div>
+
+
+          <div class="field">
+            <label class="myLabel">
+            <%= f.label :transcript %> (PDFs only) <br />
+            <span class="btn btn-default btn-file">
+            <%= f.file_field :transcript %>
+              Choose File
+            </span>
+            </label>
+          </div>          
+
+          <div class="field">
+            <label class="myLabel">
+            <%= f.label :additional_documentation %><br />
+              <span class="btn btn-default btn-file">
+                <%= f.file_field :additional_documentation %>
+                Choose File
+              </span>
+            </label>
+
+          </div>
+          <div class="field">
+<!--             <%= f.label :comments %><br />
+ -->            <%= f.text_area :comments,  placeholder: "Comments", :class => "form-control", :rows => "6"   %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit 'Submit', :class => "btn btn-lg btn-default" %> 
+          </div>
+                  <br>
+
+
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.text_field :first_name, placeholder: "First name"%>
   </div>
-  <div class="field">
-    <%= f.text_field :last_name, placeholder: "Last name" %>
-  </div>
-  <div class="field">
-    <%= f.text_field :email, placeholder: "Email address" %>
-  </div>
-  <div class="field">
-    <%= f.label :course %><br />
-    <%= collection_select(:waiver, :course_id, Course.all, :id, :name) %><br />
-  </div> 
-  <div class="field">
-    <%= f.text_field :replacement_class, placeholder: "Replacement class"%>
-  </div>
-  <div class="field">
-    <%= f.label :taken_replacement_class %><br />
-    <%= f.select :taken_replacement_class, ['Yes','No'] %><br />
-    
-  </div>
-  <div class="field">
-    <%= f.text_field :course_taken_website, placeholder: "Course taken website" %>
-  </div>
-  <div class="field">
-    <p>Syllabus</p>
-    <%= f.file_field :documentation %>
-  </div>
-  <div class="field">
-    <p>Transcript</p>
-    <%= f.file_field :transcript %>
-  </div>
-
-  <div class="field">
-    <p>Additional Documentation</p>
-    <%= f.file_field :additional_documentation %>
-  </div>
-
-  <div class="field">
-    <%= f.text_area :comments, placeholder: "Additional comments" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-
 </div>
-<% end %>
+
+
+        <% end %>
+
