@@ -27,4 +27,8 @@ html, body {
   border-radius: 0 !important;
 }
 
+.jumbotron {
+  top: 50%;
+  transform: translateY(25%);
 
+}
