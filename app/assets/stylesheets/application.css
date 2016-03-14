@@ -183,7 +183,7 @@ body {
   * Form 
   */
 
-input.file {
+input.file{
 	position: relative;
 	text-align: right;
 	-moz-opacity:0 ;
@@ -195,7 +195,7 @@ input.file {
     position: relative;
     overflow: hidden;
 }
-.btn-file input[type=file] {
+.btn-file input[type=file]{
     position: absolute;
     top: 0;
     right: 0;
@@ -205,7 +205,7 @@ input.file {
     text-align: right;
     filter: alpha(opacity=0);
     opacity: 0;
-    outline: none;
+    outline: transparent;
     background: white;
     cursor: inherit;
     display: block;
