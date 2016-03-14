@@ -15,10 +15,16 @@
 
  */
 
+
+html, body {
+  height: 100%;
+}
+
 .btn-default, .btn-default:hover, .btn-default:focus {
   text-shadow: none;
   -webkit-border-radius: 0 !important;
   -moz-border-radius: 0 !important;
   border-radius: 0 !important;
 }
+
 
