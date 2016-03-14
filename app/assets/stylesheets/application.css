@@ -205,7 +205,6 @@ input.file{
     text-align: right;
     filter: alpha(opacity=0);
     opacity: 0;
-    outline: transparent;
     background: white;
     cursor: inherit;
     display: block;
