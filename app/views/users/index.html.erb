@@ -25,24 +25,8 @@
 <br />
 
 <% if admin_signed_in? %>
-<%= link_to 'Add New Instructor', new_user_registration_path, class: "btn btn-lg btn-default"  %>
-<%= link_to('Admin Logout', destroy_admin_session_path, method: :delete, class: "btn btn-lg btn-default") %>
-<%= link_to "Administrator Dashboard", admin_path, class: "btn btn-lg btn-default" %>
-
-<% else %>
-
-
-<html>
-  <head>
-    <title>403 Forbidden</title>
-  </head>
-
-  <body>
-    <h1>Forbidden</h1>
-    <br />
-      <p>You don't have permission to access /users on this server.</p>
-    <br />
-  </body>
-</html>
+  <%= link_to 'Add New Instructor', new_user_registration_path, class: "btn btn-lg btn-default"  %>
+  <%= link_to('Admin Logout', destroy_admin_session_path, method: :delete, class: "btn btn-lg btn-default") %>
+  <%= link_to "Administrator Dashboard", admin_path, class: "btn btn-lg btn-default" %>
 
 <% end %>
