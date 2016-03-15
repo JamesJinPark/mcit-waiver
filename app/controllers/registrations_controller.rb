@@ -3,8 +3,8 @@ class RegistrationsController < Devise::RegistrationsController
   # checks that admin is logged in
   before_filter :check_admin_logged_in!, except: [:update]
 
-# checks that instructor is logged in
-before_filter :check_user_logged_in!, only: [:update]
+  # checks that instructor is logged in
+  before_filter :check_user_logged_in!, only: [:update]
 
 	def new
 		super
