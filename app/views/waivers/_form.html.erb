@@ -1,8 +1,9 @@
 <div class="container">
   <div class="form-group">
-  <div class = "row">
-    <div class="col-md-offset-3 col-md-6">
-      <%= form_for @waiver, :html => {:multipart => true} do |f| %>
+
+    <%= form_for @waiver, :html => {:multipart => true} do |f| %>
+      <div class = "row">
+        <div class="col-md-offset-3 col-md-6">
         <% if @waiver.errors.any? %>
           <div id="error_explanation">
             <h2><%= pluralize(@waiver.errors.count, "error") %> prohibited this waiver from being saved:</h2>
@@ -39,45 +40,59 @@
         <div class="field form-control">
           <%= f.text_field :course_taken_website, placeholder: "Course Taken Website" %>
         </div>
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="col-md-offset-3 col-md-2">
         <div class="field">
           <b>Syllabus</b> (PDFs only) <br />
-          <span class="btn btn-default btn-file">
+          <span class="btn btn-default btn-file btn-block">
             <%= f.file_field :documentation %> Choose File 
           </span>
         </div>
+      </div>
 
+      <div class="col-md-2">
         <div class="field">
-          <%= f.label :transcript %> (PDFs only) <br />
-          <span class="btn btn-default btn-file">
+          <b>Transcript</b> (PDFs only) <br />
+          <span class="btn btn-default btn-file btn-block">
             <%= f.file_field :transcript %>
             Choose File
           </span>
-        </div>          
+        </div> 
+      </div> 
 
+      <div class="col-md-2">
         <div class="field">
-          <%= f.label :additional_documentation %><br />
-            <span class="btn btn-default btn-file">
+          <b>Additional</b><br />
+            <span class="btn btn-default btn-file btn-block">
               <%= f.file_field :additional_documentation %>
               Choose File
             </span>
         </div>
+      </div>
+    </div>
 
-        <div class="field">
-          <%= f.text_area :comments,  placeholder: "Comments", :class => "form-control", :rows => "6"   %>
-        </div>  
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+
+          <div class="field">
+            <%= f.text_area :comments,  placeholder: "Comments", :class => "form-control", :rows => "6"   %>
+          </div> 
+        </div> 
+      </div>
 
       
-    </div>
-  </div>
+
+  
   <div class="row">
     <div class="col-md-offset-3 col-md-3">
         <div class="actions">
           <%= f.submit "Submit", class: "btn btn-lg btn-default btn-block" %>
         </div>
-
-        
     </div>
+
     <div class="col-md-3">
       <% if admin_signed_in?%>
           <div class="actions">
@@ -89,5 +104,6 @@
           </div>
         <% end %>
     </div>
+  </div>
   <% end %>
 </div>

@@ -43,3 +43,11 @@ a, a:hover, a:visited {
     color: #666 !important;
     text-decoration: none !important;
 }
+
+#waiver_comments {
+  outline: none;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
