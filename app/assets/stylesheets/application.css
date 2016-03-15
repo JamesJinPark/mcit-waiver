@@ -44,10 +44,35 @@ a, a:hover, a:visited {
     text-decoration: none !important;
 }
 
-#waiver_comments {
+#waiver_comments, #waiver_documentation, #waiver_transcript, #waiver_additional_documentation {
   outline: none;
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
   box-shadow: none !important;
 }
+
+#waiver_documentation, #waiver_transcript, #waiver_additional_documentation {    
+  border:none;
+}   
+
+input{
+    width: 100%;
+}
+
+input[type='file'] {
+  color: transparent;
+  cursor: pointer;
+}
+
+.upload input{
+  display: block !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  visibility: none;
+}
+
+.upload span{
+    padding-bottom: 15%;
+}
+
 

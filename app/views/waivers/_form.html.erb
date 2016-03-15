@@ -43,34 +43,38 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-offset-3 col-md-4">
+    <div class="row upload">
+      <div class="col-md-offset-3 col-md-2">
         <div class="field">
-          <b>Syllabus</b> (PDFs only) <br />
+          
           <span class="btn btn-default btn-file btn-block">
-            <%= f.file_field :documentation %> 
+            
+            
+            <%= f.file_field :documentation, placeholder: "Upload Syllabus PDF"  %> 
+            <b>Syllabus</b> (PDFs only)
+            <br>
           </span>
         </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col-md-offset-3 col-md-4">
+      <div class="col-md-2">
         <div class="field">
-          <b>Transcript</b> (PDFs only) <br />
+          
           <span class="btn btn-default btn-file btn-block">
-            <%= f.file_field :transcript %>
+            <%= f.file_field :transcript, placeholder: "Upload Transcript PDF" %>
+            <b>Transcript</b> (PDFs only) 
+            <br>
           </span>
         </div> 
       </div> 
-    </div> 
 
-    <div class="row">
-      <div class="col-md-offset-3 col-md-4">
+      <div class="col-md-2">
         <div class="field">
-          <b>Additional</b><br />
+          
             <span class="btn btn-default btn-file btn-block">
-              <%= f.file_field :additional_documentation %>
+              <%= f.file_field :additional_documentation, placeholder: "Upload Additional File" %>
+              <b>Additional File</b>
+              <br>
             </span>
         </div>
       </div>
