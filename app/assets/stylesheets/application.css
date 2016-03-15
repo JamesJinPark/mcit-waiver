@@ -22,9 +22,6 @@ html, body {
 
 .btn-default, .btn-default:hover, .btn-default:focus {
   text-shadow: none;
-  -webkit-border-radius: 0 !important;
-  -moz-border-radius: 0 !important;
-  border-radius: 0 !important;
 }
 
 .jumbotron {
@@ -34,4 +31,15 @@ html, body {
 
 h1, h2, h3, h4{
 	text-align: center;
+}
+
+* {
+  -webkit-border-radius: 0 !important;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
+}
+
+a, a:hover, a:visited {
+    color: #666 !important;
+    text-decoration: none !important;
 }

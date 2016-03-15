@@ -1,7 +1,7 @@
 <div class="container">
-  <div class = "row form-group">
-    <div class="col-md-6 col-md-offset-3">
-        
+  <div class="form-group">
+  <div class = "row">
+    <div class="col-md-offset-3 col-md-6">
       <%= form_for @waiver, :html => {:multipart => true} do |f| %>
         <% if @waiver.errors.any? %>
           <div id="error_explanation">
@@ -66,19 +66,28 @@
         <div class="field">
           <%= f.text_area :comments,  placeholder: "Comments", :class => "form-control", :rows => "6"   %>
         </div>  
+
+      
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-offset-3 col-md-3">
         <div class="actions">
-          <%= f.submit "Submit", class: "btn btn-lg btn-default" %>
+          <%= f.submit "Submit", class: "btn btn-lg btn-default btn-block" %>
         </div>
 
-        <% if admin_signed_in?%>
+        
+    </div>
+    <div class="col-md-3">
+      <% if admin_signed_in?%>
           <div class="actions">
-              <%= link_to 'Back', waivers_path, :class => "btn btn-lg btn-default" %>
+              <%= link_to 'Back', waivers_path, :class => "btn btn-lg btn-default btn-block" %>
           </div>
         <% else %>
           <div class="actions">
-              <%= link_to 'Back', root_path, :class => "btn btn-lg btn-default" %>
+              <%= link_to 'Back', root_path, :class => "btn btn-lg btn-default btn-block" %>
           </div>
         <% end %>
-      <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>

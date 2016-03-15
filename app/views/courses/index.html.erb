@@ -29,6 +29,7 @@
   </div>
 
   <% else %>
+<div class="container">
     <h1>All Courses</h1>
 
 <div class="table-responsive">
@@ -71,7 +72,7 @@
 
 <br />
 
-<div class="container">
+
   <% if admin_signed_in? %>
   <div class="row">
     <div class="col-md-4">
@@ -83,6 +84,7 @@
     <div class="col-md-4">
       <%= link_to "Dashboard", admin_path, class: "btn btn-lg btn-default btn-block" %>
     </div>
-  </div>
+
   <%end%>
+</div>
 </div>
