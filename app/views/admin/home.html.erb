@@ -2,40 +2,44 @@
 
 <h1>Administrator Dashboard</h1>
 
-<div class="row">
 
+<div class="container">
+	<div class="row">
 
-	<div class="col-md-4">
-		<h2>Instructors</h2>
-		<ul class="list-unstyled">
-			<li>
-				<%= link_to "Existing", users_path, :class => "btn btn-lg btn-default"  %> <%= link_to "New", new_user_registration_path, :class => "btn btn-lg btn-default"  %>
-			</li>
-		</ul>
+		<div class="col-md-4">
+			<h2>Instructors</h2>
+			<ul class="list-unstyled">
+				<li>
+					<%= link_to "Existing", users_path, :class => "btn btn-lg btn-default btn-block"  %> 
+					<%= link_to "New", new_user_registration_path, :class => "btn btn-lg btn-default btn-block"  %>
+				</li>
+			</ul>
+		</div>
+
+		<div class="col-md-4">
+			<h2>Courses</h2>
+			<ul class="list-unstyled">
+				<li>
+					<%= link_to "Existing", courses_path, :class => "btn btn-lg btn-default btn-block"  %>
+					<%= link_to "New", new_course_path, :class => "btn btn-lg btn-default btn-block"  %>
+				</li>
+			</ul>
+		</div>
+
+		<div class="col-md-4">
+			<h2>Waivers</h2>
+			<ul class="list-unstyled">
+				<li>
+					<%= link_to "List", waivers_path, :class => "btn btn-lg btn-default btn-block"  %> 
+					<%= link_to "Data", data_path, :class => "btn btn-lg btn-default btn-block"  %>
+				</li>
+			</ul>
+		</div>
+
 	</div>
 
-	<div class="col-md-4">
-		<h2>Courses</h2>
-		<ul class="list-unstyled">
-			<li>
-				<%= link_to "Existing", courses_path, :class => "btn btn-lg btn-default"  %> <%= link_to "New", new_course_path, :class => "btn btn-lg btn-default"  %>
-			</li>
-		</ul>
-	</div>
 
-	<div class="col-md-4">
-		<h2>Waivers</h2>
-		<ul class="list-unstyled">
-			<li>
-				<%= link_to "List", waivers_path, :class => "btn btn-lg btn-default"  %> <%= link_to "Data", data_path, :class => "btn btn-lg btn-default"  %>
-			</li>
-		</ul>
+	<br>
+	<%= link_to('Logout', destroy_admin_session_path, method: :delete, :class => "btn btn-lg btn-default " ) %>
 	</div>
-
 </div>
-
-
-<br>
-<%= link_to('Administrator Logout', destroy_admin_session_path, method: :delete, :class => "btn btn-lg btn-default" ) %>
-</div>
-
