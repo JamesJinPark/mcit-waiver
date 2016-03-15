@@ -24,9 +24,20 @@
 <% end %>
 <br />
 
+
 <% if admin_signed_in? %>
-  <%= link_to 'Add New Instructor', new_user_registration_path, class: "btn btn-lg btn-default"  %>
-  <%= link_to('Admin Logout', destroy_admin_session_path, method: :delete, class: "btn btn-lg btn-default") %>
-  <%= link_to "Administrator Dashboard", admin_path, class: "btn btn-lg btn-default" %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <%= link_to 'Add Instructor', new_user_registration_path, class: "btn btn-lg btn-default btn-block"  %>
+    </div>
+    <div class="col-md-4">
+      <%= link_to('Logout', destroy_admin_session_path, method: :delete, class: "btn btn-lg btn-default btn-block") %>
+    </div>
+    <div class="col-md-4">
+      <%= link_to "Dashboard", admin_path, class: "btn btn-lg btn-default btn-block" %>
+    </div>
+  </div>
+</div>
 
 <% end %>
