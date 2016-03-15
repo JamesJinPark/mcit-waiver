@@ -47,11 +47,11 @@
           <% if (User.find_by_id(course.user_id)).nil? %>
             <td><%= 'No Instructor Assigned' %></td>        
           <% else %>
-            <td><%= course.user.email %></td>    
+            <td><%= course.user.email%></td>    
           <% end %>
           <td><%= link_to 'Show', course %></td>
           <td><%= link_to 'Edit', edit_course_path(course) %></td>
-          <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Delete', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
     <% end %>
     </table>
@@ -63,12 +63,26 @@
 
 <br />
 <% if user_signed_in? %>
-<%= link_to 'Instructor Logout', destroy_user_session_path, method: :delete, class: "btn btn-lg btn-default" %>
+<div class="row">
+  <div class="col-md-3">
+  <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-lg btn-default btn-block" %>
+</div>
 <% end %>
+
 <br />
 
-<% if admin_signed_in? %>
-<%= link_to 'Add New Course', new_course_path, class: "btn btn-lg btn-default" %>
-<%= link_to 'Admin Logout', destroy_admin_session_path, method: :delete, class: "btn btn-lg btn-default" %>
-<%= link_to "Administrator Dashboard", admin_path, class: "btn btn-lg btn-default" %>
-<%end%>
+<div class="container">
+  <% if admin_signed_in? %>
+  <div class="row">
+    <div class="col-md-4">
+      <%= link_to 'New Course', new_course_path, class: "btn btn-lg btn-default btn-block" %>
+    </div>
+    <div class="col-md-4">
+      <%= link_to 'Logout', destroy_admin_session_path, method: :delete, class: "btn btn-lg btn-default btn-block" %>
+    </div>
+    <div class="col-md-4">
+      <%= link_to "Dashboard", admin_path, class: "btn btn-lg btn-default btn-block" %>
+    </div>
+  </div>
+  <%end%>
+</div>

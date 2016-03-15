@@ -17,20 +17,19 @@
         <% end %>
 
         <div class="field form-control">
-          <!--<%= f.label :name %><br />-->
           <%= f.text_field :name, placeholder: "Course Name" %>
         </div>
         <div class="field">
-          <!--<%= f.label :user %><br />-->
-          <%= collection_select(:course, :user_id, User.all, :id, :email) %>
+          
+          <b>Instructor:</b> <%= collection_select(:course, :user_id, User.all, :id, :email) %>
         </div>
 
         <div class="actions">
-          <%= f.submit 'Submit', :class => "btn btn-lg btn-default" %> 
+          <%= f.submit 'Submit', :class => "btn btn-lg btn-default btn-block" %> 
         </div>
 
         <div class="actions">
-          <%= link_to 'Back', courses_path, class: "btn btn-lg btn-default" %>
+          <%= link_to 'Back', courses_path, class: "btn btn-lg btn-default btn-block" %>
         </div>
 
       <% end %>
