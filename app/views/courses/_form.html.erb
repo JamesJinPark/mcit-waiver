@@ -1,29 +1,40 @@
-<%= form_for(@course) do |f| %>
-  <% if @course.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
-
-      <ul>
-      <% @course.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
     </div>
-  <% end %>
+    <div class="col-md-4">
+      <%= form_for(@course) do |f| %>
+        <% if @course.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
 
-  <div class="field">
-    <!--<%= f.label :name %><br />-->
-    <%= f.text_field :name, placeholder: "Course Name"   %>
+            <ul>
+            <% @course.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field form-control">
+          <!--<%= f.label :name %><br />-->
+          <%= f.text_field :name, placeholder: "Course Name" %>
+        </div>
+        <div class="field">
+          <!--<%= f.label :user %><br />-->
+          <%= collection_select(:course, :user_id, User.all, :id, :email) %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit 'Submit', :class => "btn btn-lg btn-default" %> 
+        </div>
+
+        <div class="actions">
+          <%= link_to 'Back', courses_path, class: "btn btn-lg btn-default" %>
+        </div>
+
+      <% end %>
+    </div>
   </div>
-  <div class="field">
-    <!--<%= f.label :user %><br />-->
-    <%= collection_select(:course, :user_id, User.all, :id, :email) %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit 'Submit', :class => "btn btn-lg btn-default" %> 
-  </div>
-
-
-<% end %>
+</div>
 
