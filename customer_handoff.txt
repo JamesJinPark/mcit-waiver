@@ -1,62 +1,96 @@
 1. What is MCIT Waiver?
 
 There are several required courses in the MCIT program.  If a student has 
-sufficient prior experience with the subject matter, then he or she can 
+sufficient prior experience with the subject matter, then the student can 
 request to waive the class requirement.  The MCIT Waiver web application 
 is a webservice that handles official waiver requests from students and 
 allows instructors to notify students whether their requests have been 
 approved or denied. 
 
-2. How does someone submit a waiver
+2. How does someone submit a waiver?
 
-To submit a waiver, a student must click on the link dedicated for students
-to go to a web form.  The student must fill out each of the dedicated boxes 
+To submit a waiver, a student must click on the link dedicated for students, 
+which will go to a web form. The student must fill out each of the required boxes 
 and must use a seas.upenn.edu email or a cis.upenn.edu email address.  There
-are also options to uploading documents such as transcripts and syllabi from 
-previously taken classes as well as additional documents. 
+are also options to upload documents such as transcripts or syllabi from 
+previously taken courses. An third file upload option is available for supplemental
+information.
 
-At minimum, each waiver request is required to have a first name, last name, 
-email address, replacement class, boolean indicating whether the student has 
-taken the replacement class, as well as the course that the student would like
-to waive. If instructors require additional information, they will be able to
-deny the waiver request and ask the student to resubmit another request. 
+At minimum, each waiver request is required to include a first name, last name, 
+email address, replacement class, whether the student has taken the replacement 
+class, as well as the course that the student would like to waive. If instructors 
+require additional information, they will be able to deny the waiver request and 
+ask the student to resubmit another request. 
 
-3. How does an instructor: view, approve, deny
+3. How does an instructor view, approve, or deny a waiver request?
 
 To view waivers, the instructor must click on the link dedicated for 
-instructors.  The instructor will see all of the classes that he or she is 
+instructors. The instructor will see all of the classes that he or she is 
 the instructor for.  To view waivers for these classes, the instructor must
 follow the links for the respective classes.  Each waiver request will have 
 options to approve or deny.  The instructor can approve by clicking the 
 approve link or deny by clicking the deny link. 
 
-4. Summary of each class/features that have been implemented 
+4. How does an administrator add or delete an instructor?
 
-Email notification for instructors:  Instructors can subscribe to email 
-notifications where they'll receive an email whenever a new waiver request
-is submitted. 
+After logging in, administrators can navigate to "Edit Instructors", and
+delete or add a new instructor. 
 
-Administrator dashboard:  Administrator can see a list of all instructors,
-all courses, and all waivers.  Administrator can add instructors, add courses,
-and add waivers.  When a new course is created, the Administrator can assign 
-instructors to the courses.  Administrator can change who the instructor is 
-for a course. 
-
-Data page:  Administrator can see a page with some data analysis on waivers 
-submitted. 
+5. How is an administrator account created?
 
 Administrators must be created manually by running the command "rails c" or
 "rails console" and running the commmand: 
 Admin.create([{email: 'newAdmin@seas.upenn.edu', password: 'password'}])
 
-5. Known bugs
+6. How does an administrator add, edit, delete a course?
+After logging in, administrators can navigate to "Edit Courses", and
+edit, delete or add a new course. 
 
-6. Git repo information
+7. Summary of each class/features that have been implemented:
 
+Students submit waiver requests. No login is required. Students are not able to
+edit requests after submitting them.
+
+Students receive an email 1) when they have submitted a waiver request for confirmation
+and 2) when their waiver request has either been approved or denied.
+
+Administrators and instructors can log in and log out.
+
+Administrators and Instructors see the current status (Pending, Approved, Denied) 
+of each waiver requests. Instructors only see waiver requests for their courses. 
+
+Administrators and Instructors can approve or deny a waiver request.
+
+Administrator dashboard:  Administrator can see a list of all instructors,
+all courses, and all waiver history.  Administrator can add instructors, add courses,
+and add waivers.  When a new course is created, the Administrator can assign 
+instructors to the courses.  Administrator can change which instructor is 
+assigned to each course.
+
+Data page:  Administrator can see a page with some data analysis on waivers 
+submitted. 
+
+Email notification for instructors:  Instructors can subscribe to email 
+notifications where they'll receive an email whenever a new waiver request
+is submitted. 
+
+Sortable columns: Administrators and instructors can sort waivers by clicking on
+column titles.
+
+8. Known bugs
+
+9. Git repo information
 The repository that this project is hosted on is:
 https://github.com/brittbinler/mcit-waiver
 
-7. How to run the server(s)
+Clone the repository and navigate into the mcit-waiver directory.
+Run bundle install. 
+Run rake db:migrate. 
+Run rake db:seed to populate sample data.
+Start the server with rails s.
+Open localhost in your browser.
+
+10. How to run the server(s)
 
 To run the server, simply use the command "rails s" or "rails server".  
 The search capabilities of web app using the gem "solr" has been disabled.
@@ -64,4 +98,12 @@ If the search feature is reinstated, use the command "rake sunspot:solr:run"
 to run the solr server alongside the rails server. 
 
 8. Anything else that would be important for future developers
+Email is supported by Rails Action Mailer.
+File uploads are supported by the carrierwave gem. 
+Password protection is supported by the devise gem.
+The user model represents instructors.
+
+
+
+
 

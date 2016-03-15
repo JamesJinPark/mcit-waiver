@@ -18,14 +18,13 @@
         <th><%= sortable "documentation", "Syllabus" %></th>
         <th><%= sortable "transcript", "Transcript" %></th>
         <th><%= sortable "additional_documentation", "Additional Documentation" %></th>
-        <th></th>
         
       </tr>
     </thead>
 
     <% @waivers.each do |waiver| %>
       <tr>
-        <td><%= link_to 'Deny', deny_waiver_path(waiver), method: :post %><br /><%= link_to 'Approve', approve_waiver_path(waiver), method: :post %></td>
+        <td><%= link_to 'Deny', deny_waiver_path(waiver), method: :post %><br /><%= link_to 'Approve', approve_waiver_path(waiver), method: :post %><br /><%= link_to 'Details', waiver %></td>
         <td><%= waiver.created_at %></td>
         <td><%= waiver.first_name %></td>
         <td><%= waiver.last_name %></td>
@@ -38,7 +37,6 @@
         <td><%= link_to 'Syllabus', waiver.documentation.url %></td>
         <td><%= link_to 'Transcript', waiver.transcript.url %></td>
         <td><%= link_to 'Additional Documentation', waiver.additional_documentation.url %></td>
-        <td class = "background"><%= link_to 'Show', waiver %><br /><%= link_to 'Edit', edit_waiver_path(waiver) %><br /><%= link_to 'Delete', waiver, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         
       </tr>
     <% end %>
